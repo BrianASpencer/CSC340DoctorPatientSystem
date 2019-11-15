@@ -1,0 +1,28 @@
+E:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\bin\Debug\DoctorPatient Subsystem.exe.config
+E:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\bin\Debug\DoctorPatient Subsystem.exe
+E:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\bin\Debug\DoctorPatient Subsystem.pdb
+E:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.csprojAssemblyReference.cache
+E:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient_Subsystem.Form1.resources
+E:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient_Subsystem.Properties.Resources.resources
+E:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.csproj.GenerateResource.cache
+E:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.csproj.CoreCompileInputs.cache
+E:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.exe
+E:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.pdb
+F:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\bin\Debug\DoctorPatient Subsystem.exe.config
+F:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\bin\Debug\DoctorPatient Subsystem.exe
+F:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\bin\Debug\DoctorPatient Subsystem.pdb
+F:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.csprojAssemblyReference.cache
+F:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient_Subsystem.Form1.resources
+F:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient_Subsystem.Properties.Resources.resources
+F:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.csproj.GenerateResource.cache
+F:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.exe
+F:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.pdb
+D:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\bin\Debug\DoctorPatient Subsystem.exe.config
+D:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\bin\Debug\DoctorPatient Subsystem.exe
+D:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\bin\Debug\DoctorPatient Subsystem.pdb
+D:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.csprojAssemblyReference.cache
+D:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient_Subsystem.Form1.resources
+D:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient_Subsystem.Properties.Resources.resources
+D:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.csproj.GenerateResource.cache
+D:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.exe
+D:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.pdb
