@@ -12,11 +12,11 @@ namespace DoctorPatient_Subsystem
     class Patient
     {
         int patientId;
-        String name;
-        String phoneNumber;
-        String dateOfBirth;
-        String drugAllergies;
-        String address;
+        string name;
+        string phoneNumber;
+        string dateOfBirth;
+        string drugAllergies;
+        string address;
 
         //gets
         public int getId()
@@ -24,27 +24,27 @@ namespace DoctorPatient_Subsystem
             return patientId;
         }
 
-        public String getName()
+        public string getName()
         {
             return name;
         }
 
-        public String getPhoneNum()
+        public string getPhoneNum()
         {
             return phoneNumber;
         }
 
-        public String getBirth()
+        public string getBirth()
         {
             return dateOfBirth;
         }
 
-        public String getAllergies()
+        public string getAllergies()
         {
             return drugAllergies;
         }
 
-        public String getAdress()
+        public string getAdress()
         {
             return address;
         }
