@@ -50,5 +50,46 @@ namespace DoctorPatient_Subsystem
         {
 
         }
+
+        private void RadioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoginLoginBtn_Click(object sender, EventArgs e)
+        {
+
+            String id = loginIDtB.Text;
+            String password = loginPasswordTB.Text;
+            if (radioButtonDoctor.Checked)
+            {
+
+
+                if (id!=sqlId || password != sqlPassword)
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+            else
+            {
+                if (id != sqlId || password != sqlPassword)
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+        }
+
+        private void Label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -26,3 +26,18 @@ D:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\obj\Debug\DoctorPatie
 D:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.csproj.GenerateResource.cache
 D:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.exe
 D:\CSC 340\DoctorPatient Subsystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.pdb
+C:\Users\EKUStudent\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.csprojAssemblyReference.cache
+C:\Users\EKUStudent\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient_Subsystem.Form1.resources
+C:\Users\EKUStudent\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient_Subsystem.Properties.Resources.resources
+C:\Users\EKUStudent\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.csproj.GenerateResource.cache
+C:\Users\EKUStudent\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.csproj.CoreCompileInputs.cache
+C:\Users\EKUStudent\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.exe
+C:\Users\EKUStudent\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.pdb
+C:\Users\EKUStudent\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\bin\Debug\DoctorPatient Subsystem.exe.config
+C:\Users\EKUStudent\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\bin\Debug\DoctorPatient Subsystem.exe
+C:\Users\EKUStudent\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\bin\Debug\DoctorPatient Subsystem.pdb
+C:\Users\EKUStudent\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\bin\Debug\MySql.Data.dll
+C:\Users\EKUStudent\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\bin\Debug\Google.Protobuf.dll
+C:\Users\EKUStudent\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\EKUStudent\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\bin\Debug\MySql.Data.xml
+C:\Users\EKUStudent\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.csproj.CopyComplete
