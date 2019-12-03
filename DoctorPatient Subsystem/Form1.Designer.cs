@@ -35,6 +35,7 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button5 = new System.Windows.Forms.Button();
             this.LoginPanel = new System.Windows.Forms.Panel();
+            this.loginInvalid = new System.Windows.Forms.Label();
             this.loginLoginBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,7 +43,6 @@
             this.loginIDtB = new System.Windows.Forms.TextBox();
             this.radioButtonPatient = new System.Windows.Forms.RadioButton();
             this.radioButtonDoctor = new System.Windows.Forms.RadioButton();
-            this.loginInvalid = new System.Windows.Forms.Label();
             this.LoginPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,11 +108,23 @@
             this.LoginPanel.Controls.Add(this.loginIDtB);
             this.LoginPanel.Controls.Add(this.radioButtonPatient);
             this.LoginPanel.Controls.Add(this.radioButtonDoctor);
-            this.LoginPanel.Location = new System.Drawing.Point(21, 43);
+            this.LoginPanel.Location = new System.Drawing.Point(12, 402);
             this.LoginPanel.Name = "LoginPanel";
             this.LoginPanel.Size = new System.Drawing.Size(767, 426);
             this.LoginPanel.TabIndex = 12;
             this.LoginPanel.TabStop = true;
+            // 
+            // loginInvalid
+            // 
+            this.loginInvalid.AutoSize = true;
+            this.loginInvalid.ForeColor = System.Drawing.Color.DarkRed;
+            this.loginInvalid.Location = new System.Drawing.Point(284, 287);
+            this.loginInvalid.Name = "loginInvalid";
+            this.loginInvalid.Size = new System.Drawing.Size(236, 13);
+            this.loginInvalid.TabIndex = 7;
+            this.loginInvalid.Text = "*Invalid login please check your login information";
+            this.loginInvalid.Visible = false;
+            this.loginInvalid.Click += new System.EventHandler(this.Label3_Click);
             // 
             // loginLoginBtn
             // 
@@ -178,18 +190,6 @@
             this.radioButtonDoctor.Text = "Doctor";
             this.radioButtonDoctor.UseVisualStyleBackColor = true;
             this.radioButtonDoctor.CheckedChanged += new System.EventHandler(this.RadioButton1_CheckedChanged);
-            // 
-            // loginInvalid
-            // 
-            this.loginInvalid.AutoSize = true;
-            this.loginInvalid.ForeColor = System.Drawing.Color.DarkRed;
-            this.loginInvalid.Location = new System.Drawing.Point(284, 287);
-            this.loginInvalid.Name = "loginInvalid";
-            this.loginInvalid.Size = new System.Drawing.Size(236, 13);
-            this.loginInvalid.TabIndex = 7;
-            this.loginInvalid.Text = "*Invalid login please check your login information";
-            this.loginInvalid.Visible = false;
-            this.loginInvalid.Click += new System.EventHandler(this.Label3_Click);
             // 
             // Form1
             // 

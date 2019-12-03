@@ -53,7 +53,6 @@ namespace DoctorPatient_Subsystem
         public void retreivePatientData(int id)
         {
 
-            ArrayList patientList = new ArrayList();  //a list to save the patient's data
             //prepare an SQL query to retrieve the patient 
             DataTable myTable = new DataTable();
             string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;";
