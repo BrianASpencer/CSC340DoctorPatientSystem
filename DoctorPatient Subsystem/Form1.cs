@@ -38,6 +38,9 @@ namespace DoctorPatient_Subsystem
 
         }
 
+        ////Login Panel////
+
+        // Login interactions
 
         private void LoginLoginBtn_Click(object sender, EventArgs e)
         {
@@ -130,6 +133,10 @@ namespace DoctorPatient_Subsystem
         }
 
 
+        ////patient's panel////
+
+        //patient's request appointment interactions
+
         private void patientAppMakeAppBtn_Click(object sender, EventArgs e)
         {
             //int doctorId=selectedDoc.getId();
@@ -154,7 +161,7 @@ namespace DoctorPatient_Subsystem
             //Appointment newApp = new Appointment(doctorId, patientId, doctorName, patientName,
                 //dateOfApp, description, confirmationNum);
 
-            patientAppDoctorLable.Text = "Doctor: ";
+            patientAppDoctorLable.Text = "";
             patientAppDescrip.Text = "";
 
             patientAppConfirNum.Text = dateOfApp;
@@ -172,10 +179,10 @@ namespace DoctorPatient_Subsystem
 
         private void patientAppBackBtn_Click(object sender, EventArgs e)
         {
-            patientAppDoctorLable.Text = "Doctor: ";
+            patientAppDoctorLable.Text = "";
             patientAppDocListBox.Items.Clear();
             patientAppDescrip.Text = "";
-            patientAppConfirNum.Text = "Confirmation Number: ";
+            patientAppConfirNum.Text = "";
 
             patientAppPanel.Visible=false;
         }
@@ -187,6 +194,9 @@ namespace DoctorPatient_Subsystem
 
         }
 
+
+        //patient's request phone call interactions
+
         private void patientPhoneList_SelectedIndexChanged(object sender, EventArgs e)
         {
             //selectedDoc = (Doctor)List[patientAppDocListBox.SelectedIndex];
@@ -195,7 +205,7 @@ namespace DoctorPatient_Subsystem
 
         private void patientPhoneBackBtn_Click(object sender, EventArgs e)
         {
-            patientPhoneDocLabel.Text = "Doctor: ";
+            patientPhoneDocLabel.Text = "";
             patientAppDocListBox.Items.Clear();
             patientPhoneDescrip.Text = "";
 
@@ -216,5 +226,80 @@ namespace DoctorPatient_Subsystem
         {
 
         }
+
+
+        //patient's request refill interactions
+
+        private void patientRefillBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void patientRefillList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void patientRefillSend_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void patientRefillBack_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        //patient's View Notices interactions
+
+        private void patientNoticeBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void patientNoticeList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void patientNoticeAccept_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void patientNoticeDeny_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void patientNoticeBack_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        //patient's view medical record
+
+        private void patientRecordBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void patientRecordBackBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        //patient's back btn
+
+        private void patientBack_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
     }
 }
