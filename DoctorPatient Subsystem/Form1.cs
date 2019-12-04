@@ -171,6 +171,7 @@ namespace DoctorPatient_Subsystem
         private void patientRequestAppBnt_Click(object sender, EventArgs e)
         {
             patientAppPanel.Visible=true;
+            patientDisableBtns();
 
             List.Clear();
             //make list of doctors in data base
@@ -185,6 +186,7 @@ namespace DoctorPatient_Subsystem
             patientAppDescrip.Text = "";
             patientAppConfirNum.Text = "";
 
+            patientEnableBtns();
             patientAppPanel.Visible=false;
         }
 
@@ -210,6 +212,7 @@ namespace DoctorPatient_Subsystem
             patientPhoneDescrip.Text = "";
 
             patientPhonePanel.Visible = false;
+            patientEnableBtns();
         }
 
         private void patientPhoneBtn_Click(object sender, EventArgs e)
@@ -240,6 +243,7 @@ namespace DoctorPatient_Subsystem
         private void patientRefillBtn_Click(object sender, EventArgs e)
         {
             patientPhonePanel.Visible = true;
+            patientDisableBtns();
 
             List.Clear();
             //make list of refills in data base
@@ -275,6 +279,8 @@ namespace DoctorPatient_Subsystem
             patientRefillTimes.Text = "";
             patientRefillMax.Text = "";
 
+            patientEnableBtns();
+
             patientPhonePanel.Visible = false;
         }
 
@@ -282,12 +288,22 @@ namespace DoctorPatient_Subsystem
 
         private void patientNoticeBtn_Click(object sender, EventArgs e)
         {
-
+            patientDisableBtns();
+            //make list from notices with patId
+            patientNoticePanel.Visible = true;
+            //patientNoticeType.Text = (Notice)List[0].getType;
+            //patientNoticeDescrip.Text = (Notice)List[0].getDescription();
+            patientNoticePanel.Location = new Point(206, 42);
         }
 
         private void patientNoticeList_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+            //Notice selectedNote=(Notice)List[patientNoticeList.SelectedIndex];
+            //patientNoticeType.Text = selectedNote.getType;
+            //patientNoticeDescrip.Text = selectedNote.getDescription();
+
+            //if type is not acceptable/deniable disable accept and deny btns
         }
 
         private void patientNoticeAccept_Click(object sender, EventArgs e)
@@ -302,7 +318,13 @@ namespace DoctorPatient_Subsystem
 
         private void patientNoticeBack_Click(object sender, EventArgs e)
         {
+            patientEnableBtns();
 
+            patientNoticeList.Items.Clear();
+            patientNoticeType.Text = "";
+            patientNoticeDescrip.Text = "";
+            patientNoticePanel.Visible = false;
+            patientNoticePanel.Location = new Point(303, 334);
         }
 
         //patient's view medical record
@@ -310,6 +332,7 @@ namespace DoctorPatient_Subsystem
         private void patientRecordBtn_Click(object sender, EventArgs e)
         {
             patientRecordPanel.Visible = true;
+            patientDisableBtns();
 
             patientRecordTB.Text = userPatient.getMedRecord();
         }
@@ -318,7 +341,9 @@ namespace DoctorPatient_Subsystem
         {
             patientRecordTB.Text = "";
 
+            patientEnableBtns();
             patientRecordPanel.Visible = false;
+
         }
 
         //patient's back btn
@@ -335,5 +360,24 @@ namespace DoctorPatient_Subsystem
 
 
 
+        public void patientDisableBtns()
+        {
+            patientRequestAppBnt.Enabled = false;
+            patientPhoneBtn.Enabled = false;
+            patientRefillBtn.Enabled = false;
+            patientNoticeBtn.Enabled = false;
+            patientRecordBtn.Enabled = false;
+            patientBack.Enabled = false;
+        }
+
+        public void patientEnableBtns()
+        {
+            patientRequestAppBnt.Enabled = true;
+            patientPhoneBtn.Enabled = true;
+            patientRefillBtn.Enabled = true;
+            patientNoticeBtn.Enabled = true;
+            patientRecordBtn.Enabled = true;
+            patientBack.Enabled = true;
+        }
     }
 }
