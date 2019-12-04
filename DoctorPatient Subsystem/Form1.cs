@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -13,6 +13,12 @@ namespace DoctorPatient_Subsystem
 {
     public partial class Form1 : Form
     {
+        Patient userPatient;
+        //Doctor userDoctor;
+        //Doctor selectedDoc;
+        Patient selectedPat;
+        ArrayList List = new ArrayList();
+
         public Form1()
         {
             InitializeComponent();
@@ -32,34 +38,10 @@ namespace DoctorPatient_Subsystem
 
         }
 
-        private void Button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RadioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void LoginLoginBtn_Click(object sender, EventArgs e)
         {
-            loginInvalid.Visible.Equals(false);
+            loginInvalid.Visible=false;
             String id = loginIDtB.Text;
             String password = loginPasswordTB.Text;
             String sqlPassword="";
@@ -97,11 +79,11 @@ namespace DoctorPatient_Subsystem
 
                 if (myTable==null || password != sqlPassword)
                 {
-                    loginInvalid.Visible.Equals(true);
+                    loginInvalid.Visible=true;
                 }
                 else
                 {
-                    LoginPanel.Visible.Equals(false);
+                    LoginPanel.Visible=false;
                 }
             }
             else
@@ -138,16 +120,99 @@ namespace DoctorPatient_Subsystem
 
                 if (myTable == null || password != sqlPassword)
                 {
-                    loginInvalid.Visible.Equals(true);
+                    loginInvalid.Visible=true;
                 }
                 else
                 {
-                    LoginPanel.Visible.Equals(false);
+                    LoginPanel.Visible=false;
                 }
             }
         }
 
-        private void Label3_Click(object sender, EventArgs e)
+
+        private void patientAppMakeAppBtn_Click(object sender, EventArgs e)
+        {
+            //int doctorId=selectedDoc.getId();
+            //string doctorName = selectedDoc.getName();
+            int patientId = userPatient.getId();
+            string patientName = userPatient.getName();
+            string description=patientAppDescrip.Text;
+            string dateOfApp = patientAppDate.Value.Year + "-" + patientAppDate.Value.Month +
+                "-" + patientAppDate.Value.Day + " " + patientAppTime.Value.Hour + ":" + 
+                patientAppTime.Value.Minute + ":00";
+            patientAppConfirNum.Text =dateOfApp;
+
+            Random rnd = new Random();
+            string confirmationNum ="";
+            for(int i = 0; i < 6; i++)
+            {
+                confirmationNum += rnd.Next(0, 9);
+            }
+            
+
+            //make appointment 
+            //Appointment newApp = new Appointment(doctorId, patientId, doctorName, patientName,
+                //dateOfApp, description, confirmationNum);
+
+            patientAppDoctorLable.Text = "Doctor: ";
+            patientAppDescrip.Text = "";
+
+            patientAppConfirNum.Text = dateOfApp;
+        }
+
+        private void patientRequestAppBnt_Click(object sender, EventArgs e)
+        {
+            patientAppPanel.Visible=true;
+
+            List.Clear();
+            //make list of doctors in data base
+
+            //selectedDoc = (Doctor)List[0];
+        }
+
+        private void patientAppBackBtn_Click(object sender, EventArgs e)
+        {
+            patientAppDoctorLable.Text = "Doctor: ";
+            patientAppDocListBox.Items.Clear();
+            patientAppDescrip.Text = "";
+            patientAppConfirNum.Text = "Confirmation Number: ";
+
+            patientAppPanel.Visible=false;
+        }
+
+        private void patientAppDocListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //selectedDoc = (Doctor)List[patientAppDocListBox.SelectedIndex];
+            //patientAppDoctorLable.Text += "" + selectedDoc.getName();
+
+        }
+
+        private void patientPhoneList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //selectedDoc = (Doctor)List[patientAppDocListBox.SelectedIndex];
+            //patientAppDoctorLable.Text += "" + selectedDoc.getName();
+        }
+
+        private void patientPhoneBackBtn_Click(object sender, EventArgs e)
+        {
+            patientPhoneDocLabel.Text = "Doctor: ";
+            patientAppDocListBox.Items.Clear();
+            patientPhoneDescrip.Text = "";
+
+            patientPhonePanel.Visible = false;
+        }
+
+        private void patientPhoneBtn_Click(object sender, EventArgs e)
+        {
+            patientPhonePanel.Visible = true;
+
+            List.Clear();
+            //make list of doctors in data base
+
+            //selectedDoc = (Doctor)List[0];
+        }
+
+        private void patientPhoneSendBtn_Click(object sender, EventArgs e)
         {
 
         }

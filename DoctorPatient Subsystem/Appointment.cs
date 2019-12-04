@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,10 +14,24 @@ namespace DoctorPatient_Subsystem
         int doctorId;
         int patientId;
         int noticeId;
+        string confirmationNum;
         string patientName;
         string doctorName;
         string date;
         string description;
+
+        public Appointment(int docId, int patId, string docName, string patName, string conDate,
+            string conDescrip, string confirNum)
+        {
+            //create appointment in table
+
+            //create notice
+
+            //get noticeid
+
+            //update appointment in table
+
+        }
 
         //gets
         public int getAppointmentId()
@@ -36,7 +49,12 @@ namespace DoctorPatient_Subsystem
             return patientId;
         }
 
-        public String getPatientName()
+        public string getConfirNum()
+        {
+            return confirmationNum;
+        }
+
+        public string getPatientName()
         {
             return patientName;
         }
@@ -46,17 +64,17 @@ namespace DoctorPatient_Subsystem
             return doctorId;
         }
 
-        public String getDoctorName()
+        public string getDoctorName()
         {
             return doctorName;
         }
 
-        public String getDate()
+        public string getDate()
         {
             return date;
         }
 
-        public String getDescription()
+        public string getDescription()
         {
             return description;
         }
@@ -68,7 +86,6 @@ namespace DoctorPatient_Subsystem
             //prepare an SQL query to retrieve
             DataTable myTable = new DataTable();
             string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;";
-            ArrayList List = new ArrayList();  //a list to save the data
             MySqlConnection conn = new MySqlConnection(connStr);
 
             //retrieve base info from appointment table
@@ -96,6 +113,7 @@ namespace DoctorPatient_Subsystem
                 noticeId = Int32.Parse(row["noticeID"].ToString());
                 description = row["description"].ToString();
                 date= row["date"].ToString();
+                confirmationNum = row["confirmationNum"].ToString();
                
             }
 

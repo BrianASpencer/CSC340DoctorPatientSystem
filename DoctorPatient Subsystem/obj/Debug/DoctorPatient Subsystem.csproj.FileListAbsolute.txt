@@ -41,3 +41,17 @@ C:\Users\EKUStudent\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorP
 C:\Users\EKUStudent\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\EKUStudent\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\bin\Debug\MySql.Data.xml
 C:\Users\EKUStudent\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.csproj.CopyComplete
+C:\Users\Kodi D\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\bin\Debug\DoctorPatient Subsystem.exe.config
+C:\Users\Kodi D\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\bin\Debug\DoctorPatient Subsystem.exe
+C:\Users\Kodi D\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\bin\Debug\DoctorPatient Subsystem.pdb
+C:\Users\Kodi D\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\bin\Debug\MySql.Data.dll
+C:\Users\Kodi D\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\bin\Debug\Google.Protobuf.dll
+C:\Users\Kodi D\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Kodi D\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\bin\Debug\MySql.Data.xml
+C:\Users\Kodi D\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.csprojAssemblyReference.cache
+C:\Users\Kodi D\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient_Subsystem.Form1.resources
+C:\Users\Kodi D\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient_Subsystem.Properties.Resources.resources
+C:\Users\Kodi D\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.csproj.GenerateResource.cache
+C:\Users\Kodi D\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.csproj.CopyComplete
+C:\Users\Kodi D\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.exe
+C:\Users\Kodi D\Source\Repos\BrianASpencer\CSC340DoctorPatientSystem\DoctorPatient Subsystem\obj\Debug\DoctorPatient Subsystem.pdb
