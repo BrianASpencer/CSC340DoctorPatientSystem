@@ -61,47 +61,47 @@
             this.patientAppDoctorLable = new System.Windows.Forms.Label();
             this.patientAppTime = new System.Windows.Forms.DateTimePicker();
             this.patientAppDocListBox = new System.Windows.Forms.ListBox();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.patientBack = new System.Windows.Forms.Button();
+            this.patientNoticeBtn = new System.Windows.Forms.Button();
+            this.patientRefillBtn = new System.Windows.Forms.Button();
             this.patientPhoneBtn = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.patientRecordBtn = new System.Windows.Forms.Button();
             this.patientRequestAppBnt = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.patientRefillPanel = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.patientRefillSend = new System.Windows.Forms.Button();
+            this.patientRefillBack = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.patientRefillList = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.patientRefillID = new System.Windows.Forms.Label();
+            this.patientRefillMed = new System.Windows.Forms.Label();
+            this.patientRefillDates = new System.Windows.Forms.Label();
+            this.patientRefillTimes = new System.Windows.Forms.Label();
+            this.patientRefillMax = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.patientNoticePanel = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.button13 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.button16 = new System.Windows.Forms.Button();
+            this.patientNoticeDescrip = new System.Windows.Forms.RichTextBox();
+            this.patientNoticeAccept = new System.Windows.Forms.Button();
+            this.patientNoticeBack = new System.Windows.Forms.Button();
+            this.patientNoticeType = new System.Windows.Forms.Label();
+            this.patientNoticeList = new System.Windows.Forms.ListBox();
+            this.patientNoticeDeny = new System.Windows.Forms.Button();
+            this.patientRecordPanel = new System.Windows.Forms.Panel();
+            this.patientRecordTB = new System.Windows.Forms.RichTextBox();
+            this.patientRecordBackBtn = new System.Windows.Forms.Button();
             this.LoginPanel.SuspendLayout();
             this.patientPanel.SuspendLayout();
             this.patientPhonePanel.SuspendLayout();
             this.patientAppPanel.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.patientRefillPanel.SuspendLayout();
+            this.patientNoticePanel.SuspendLayout();
+            this.patientRecordPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -249,14 +249,15 @@
             // 
             // patientPanel
             // 
+            this.patientPanel.Controls.Add(this.patientRecordPanel);
             this.patientPanel.Controls.Add(this.patientAppPanel);
-            this.patientPanel.Controls.Add(this.button10);
-            this.patientPanel.Controls.Add(this.button9);
-            this.patientPanel.Controls.Add(this.button8);
+            this.patientPanel.Controls.Add(this.patientBack);
+            this.patientPanel.Controls.Add(this.patientNoticeBtn);
+            this.patientPanel.Controls.Add(this.patientRefillBtn);
             this.patientPanel.Controls.Add(this.patientPhoneBtn);
-            this.patientPanel.Controls.Add(this.button6);
+            this.patientPanel.Controls.Add(this.patientRecordBtn);
             this.patientPanel.Controls.Add(this.patientRequestAppBnt);
-            this.patientPanel.Location = new System.Drawing.Point(552, 609);
+            this.patientPanel.Location = new System.Drawing.Point(12, 12);
             this.patientPanel.Name = "patientPanel";
             this.patientPanel.Size = new System.Drawing.Size(776, 397);
             this.patientPanel.TabIndex = 13;
@@ -265,13 +266,13 @@
             // 
             this.patientPhonePanel.Controls.Add(this.label15);
             this.patientPhonePanel.Controls.Add(this.label4);
-            this.patientPhonePanel.Controls.Add(this.panel1);
+            this.patientPhonePanel.Controls.Add(this.patientRefillPanel);
             this.patientPhonePanel.Controls.Add(this.patientPhoneDescrip);
             this.patientPhonePanel.Controls.Add(this.patientPhoneSendBtn);
             this.patientPhonePanel.Controls.Add(this.patientPhoneBackBtn);
             this.patientPhonePanel.Controls.Add(this.patientPhoneDocLabel);
             this.patientPhonePanel.Controls.Add(this.patientPhoneList);
-            this.patientPhonePanel.Location = new System.Drawing.Point(25, 0);
+            this.patientPhonePanel.Location = new System.Drawing.Point(39, 0);
             this.patientPhonePanel.Name = "patientPhonePanel";
             this.patientPhonePanel.Size = new System.Drawing.Size(473, 201);
             this.patientPhonePanel.TabIndex = 12;
@@ -439,32 +440,32 @@
             this.patientAppDocListBox.TabIndex = 0;
             this.patientAppDocListBox.SelectedIndexChanged += new System.EventHandler(this.patientAppDocListBox_SelectedIndexChanged);
             // 
-            // button10
+            // patientBack
             // 
-            this.button10.Location = new System.Drawing.Point(692, 362);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
-            this.button10.TabIndex = 5;
-            this.button10.Text = "Back";
-            this.button10.UseVisualStyleBackColor = true;
+            this.patientBack.Location = new System.Drawing.Point(692, 362);
+            this.patientBack.Name = "patientBack";
+            this.patientBack.Size = new System.Drawing.Size(75, 23);
+            this.patientBack.TabIndex = 5;
+            this.patientBack.Text = "Back";
+            this.patientBack.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // patientNoticeBtn
             // 
-            this.button9.Location = new System.Drawing.Point(23, 106);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(121, 23);
-            this.button9.TabIndex = 4;
-            this.button9.Text = "View Notice";
-            this.button9.UseVisualStyleBackColor = true;
+            this.patientNoticeBtn.Location = new System.Drawing.Point(23, 106);
+            this.patientNoticeBtn.Name = "patientNoticeBtn";
+            this.patientNoticeBtn.Size = new System.Drawing.Size(121, 23);
+            this.patientNoticeBtn.TabIndex = 4;
+            this.patientNoticeBtn.Text = "View Notice";
+            this.patientNoticeBtn.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // patientRefillBtn
             // 
-            this.button8.Location = new System.Drawing.Point(23, 77);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(121, 23);
-            this.button8.TabIndex = 3;
-            this.button8.Text = "Request Refill";
-            this.button8.UseVisualStyleBackColor = true;
+            this.patientRefillBtn.Location = new System.Drawing.Point(23, 77);
+            this.patientRefillBtn.Name = "patientRefillBtn";
+            this.patientRefillBtn.Size = new System.Drawing.Size(121, 23);
+            this.patientRefillBtn.TabIndex = 3;
+            this.patientRefillBtn.Text = "Request Refill";
+            this.patientRefillBtn.UseVisualStyleBackColor = true;
             // 
             // patientPhoneBtn
             // 
@@ -476,14 +477,14 @@
             this.patientPhoneBtn.UseVisualStyleBackColor = true;
             this.patientPhoneBtn.Click += new System.EventHandler(this.patientPhoneBtn_Click);
             // 
-            // button6
+            // patientRecordBtn
             // 
-            this.button6.Location = new System.Drawing.Point(23, 135);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(121, 23);
-            this.button6.TabIndex = 1;
-            this.button6.Text = "View Medical Record";
-            this.button6.UseVisualStyleBackColor = true;
+            this.patientRecordBtn.Location = new System.Drawing.Point(23, 135);
+            this.patientRecordBtn.Name = "patientRecordBtn";
+            this.patientRecordBtn.Size = new System.Drawing.Size(121, 23);
+            this.patientRecordBtn.TabIndex = 1;
+            this.patientRecordBtn.Text = "View Medical Record";
+            this.patientRecordBtn.UseVisualStyleBackColor = true;
             // 
             // patientRequestAppBnt
             // 
@@ -495,27 +496,27 @@
             this.patientRequestAppBnt.UseVisualStyleBackColor = true;
             this.patientRequestAppBnt.Click += new System.EventHandler(this.patientRequestAppBnt_Click);
             // 
-            // panel1
+            // patientRefillPanel
             // 
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button7);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.listBox2);
-            this.panel1.Location = new System.Drawing.Point(25, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(473, 201);
-            this.panel1.TabIndex = 13;
-            this.panel1.Visible = false;
+            this.patientRefillPanel.Controls.Add(this.patientNoticePanel);
+            this.patientRefillPanel.Controls.Add(this.patientRefillMax);
+            this.patientRefillPanel.Controls.Add(this.patientRefillTimes);
+            this.patientRefillPanel.Controls.Add(this.patientRefillDates);
+            this.patientRefillPanel.Controls.Add(this.patientRefillMed);
+            this.patientRefillPanel.Controls.Add(this.patientRefillID);
+            this.patientRefillPanel.Controls.Add(this.label9);
+            this.patientRefillPanel.Controls.Add(this.label8);
+            this.patientRefillPanel.Controls.Add(this.label7);
+            this.patientRefillPanel.Controls.Add(this.label3);
+            this.patientRefillPanel.Controls.Add(this.patientRefillSend);
+            this.patientRefillPanel.Controls.Add(this.patientRefillBack);
+            this.patientRefillPanel.Controls.Add(this.label6);
+            this.patientRefillPanel.Controls.Add(this.patientRefillList);
+            this.patientRefillPanel.Location = new System.Drawing.Point(40, 0);
+            this.patientRefillPanel.Name = "patientRefillPanel";
+            this.patientRefillPanel.Size = new System.Drawing.Size(473, 201);
+            this.patientRefillPanel.TabIndex = 13;
+            this.patientRefillPanel.Visible = false;
             // 
             // label3
             // 
@@ -526,23 +527,23 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "Medication: ";
             // 
-            // button3
+            // patientRefillSend
             // 
-            this.button3.Location = new System.Drawing.Point(189, 150);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(134, 23);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Send Request";
-            this.button3.UseVisualStyleBackColor = true;
+            this.patientRefillSend.Location = new System.Drawing.Point(189, 150);
+            this.patientRefillSend.Name = "patientRefillSend";
+            this.patientRefillSend.Size = new System.Drawing.Size(134, 23);
+            this.patientRefillSend.TabIndex = 8;
+            this.patientRefillSend.Text = "Send Request";
+            this.patientRefillSend.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // patientRefillBack
             // 
-            this.button7.Location = new System.Drawing.Point(395, 150);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 7;
-            this.button7.Text = "Back";
-            this.button7.UseVisualStyleBackColor = true;
+            this.patientRefillBack.Location = new System.Drawing.Point(395, 150);
+            this.patientRefillBack.Name = "patientRefillBack";
+            this.patientRefillBack.Size = new System.Drawing.Size(75, 23);
+            this.patientRefillBack.TabIndex = 7;
+            this.patientRefillBack.Text = "Back";
+            this.patientRefillBack.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -553,13 +554,13 @@
             this.label6.TabIndex = 2;
             this.label6.Text = "Refill ID: ";
             // 
-            // listBox2
+            // patientRefillList
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(25, 26);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(155, 147);
-            this.listBox2.TabIndex = 0;
+            this.patientRefillList.FormattingEnabled = true;
+            this.patientRefillList.Location = new System.Drawing.Point(25, 26);
+            this.patientRefillList.Name = "patientRefillList";
+            this.patientRefillList.Size = new System.Drawing.Size(155, 147);
+            this.patientRefillList.TabIndex = 0;
             // 
             // label7
             // 
@@ -588,50 +589,50 @@
             this.label9.TabIndex = 15;
             this.label9.Text = "Max Refills: ";
             // 
-            // label10
+            // patientRefillID
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(260, 26);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(50, 13);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Refill ID: ";
+            this.patientRefillID.AutoSize = true;
+            this.patientRefillID.Location = new System.Drawing.Point(260, 26);
+            this.patientRefillID.Name = "patientRefillID";
+            this.patientRefillID.Size = new System.Drawing.Size(50, 13);
+            this.patientRefillID.TabIndex = 16;
+            this.patientRefillID.Text = "Refill ID: ";
             // 
-            // label11
+            // patientRefillMed
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(261, 45);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(50, 13);
-            this.label11.TabIndex = 17;
-            this.label11.Text = "Refill ID: ";
+            this.patientRefillMed.AutoSize = true;
+            this.patientRefillMed.Location = new System.Drawing.Point(261, 45);
+            this.patientRefillMed.Name = "patientRefillMed";
+            this.patientRefillMed.Size = new System.Drawing.Size(50, 13);
+            this.patientRefillMed.TabIndex = 17;
+            this.patientRefillMed.Text = "Refill ID: ";
             // 
-            // label12
+            // patientRefillDates
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(260, 65);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(50, 13);
-            this.label12.TabIndex = 18;
-            this.label12.Text = "Refill ID: ";
+            this.patientRefillDates.AutoSize = true;
+            this.patientRefillDates.Location = new System.Drawing.Point(260, 65);
+            this.patientRefillDates.Name = "patientRefillDates";
+            this.patientRefillDates.Size = new System.Drawing.Size(50, 13);
+            this.patientRefillDates.TabIndex = 18;
+            this.patientRefillDates.Text = "Refill ID: ";
             // 
-            // label13
+            // patientRefillTimes
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(260, 84);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(50, 13);
-            this.label13.TabIndex = 19;
-            this.label13.Text = "Refill ID: ";
+            this.patientRefillTimes.AutoSize = true;
+            this.patientRefillTimes.Location = new System.Drawing.Point(260, 84);
+            this.patientRefillTimes.Name = "patientRefillTimes";
+            this.patientRefillTimes.Size = new System.Drawing.Size(50, 13);
+            this.patientRefillTimes.TabIndex = 19;
+            this.patientRefillTimes.Text = "Refill ID: ";
             // 
-            // label14
+            // patientRefillMax
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(260, 106);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(50, 13);
-            this.label14.TabIndex = 20;
-            this.label14.Text = "Refill ID: ";
+            this.patientRefillMax.AutoSize = true;
+            this.patientRefillMax.Location = new System.Drawing.Point(260, 106);
+            this.patientRefillMax.Name = "patientRefillMax";
+            this.patientRefillMax.Size = new System.Drawing.Size(50, 13);
+            this.patientRefillMax.TabIndex = 20;
+            this.patientRefillMax.Text = "Refill ID: ";
             // 
             // label15
             // 
@@ -651,22 +652,21 @@
             this.label16.TabIndex = 13;
             this.label16.Text = "Doctor: ";
             // 
-            // panel2
+            // patientNoticePanel
             // 
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.button13);
-            this.panel2.Controls.Add(this.label17);
-            this.panel2.Controls.Add(this.label18);
-            this.panel2.Controls.Add(this.richTextBox1);
-            this.panel2.Controls.Add(this.button11);
-            this.panel2.Controls.Add(this.button12);
-            this.panel2.Controls.Add(this.label19);
-            this.panel2.Controls.Add(this.listBox3);
-            this.panel2.Location = new System.Drawing.Point(25, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(473, 201);
-            this.panel2.TabIndex = 14;
-            this.panel2.Visible = false;
+            this.patientNoticePanel.Controls.Add(this.patientNoticeDeny);
+            this.patientNoticePanel.Controls.Add(this.label17);
+            this.patientNoticePanel.Controls.Add(this.label18);
+            this.patientNoticePanel.Controls.Add(this.patientNoticeDescrip);
+            this.patientNoticePanel.Controls.Add(this.patientNoticeAccept);
+            this.patientNoticePanel.Controls.Add(this.patientNoticeBack);
+            this.patientNoticePanel.Controls.Add(this.patientNoticeType);
+            this.patientNoticePanel.Controls.Add(this.patientNoticeList);
+            this.patientNoticePanel.Location = new System.Drawing.Point(25, 0);
+            this.patientNoticePanel.Name = "patientNoticePanel";
+            this.patientNoticePanel.Size = new System.Drawing.Size(473, 201);
+            this.patientNoticePanel.TabIndex = 14;
+            this.patientNoticePanel.Visible = false;
             // 
             // label17
             // 
@@ -686,84 +686,84 @@
             this.label18.TabIndex = 12;
             this.label18.Text = "Description:";
             // 
-            // richTextBox1
+            // patientNoticeDescrip
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(189, 74);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(281, 70);
-            this.richTextBox1.TabIndex = 11;
-            this.richTextBox1.Text = "";
+            this.patientNoticeDescrip.Location = new System.Drawing.Point(189, 74);
+            this.patientNoticeDescrip.Name = "patientNoticeDescrip";
+            this.patientNoticeDescrip.Size = new System.Drawing.Size(281, 70);
+            this.patientNoticeDescrip.TabIndex = 11;
+            this.patientNoticeDescrip.Text = "";
             // 
-            // button11
+            // patientNoticeAccept
             // 
-            this.button11.Location = new System.Drawing.Point(189, 150);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(89, 23);
-            this.button11.TabIndex = 8;
-            this.button11.Text = "Accept";
-            this.button11.UseVisualStyleBackColor = true;
+            this.patientNoticeAccept.Location = new System.Drawing.Point(189, 150);
+            this.patientNoticeAccept.Name = "patientNoticeAccept";
+            this.patientNoticeAccept.Size = new System.Drawing.Size(89, 23);
+            this.patientNoticeAccept.TabIndex = 8;
+            this.patientNoticeAccept.Text = "Accept";
+            this.patientNoticeAccept.UseVisualStyleBackColor = true;
             // 
-            // button12
+            // patientNoticeBack
             // 
-            this.button12.Location = new System.Drawing.Point(395, 150);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(75, 23);
-            this.button12.TabIndex = 7;
-            this.button12.Text = "Back";
-            this.button12.UseVisualStyleBackColor = true;
+            this.patientNoticeBack.Location = new System.Drawing.Point(395, 150);
+            this.patientNoticeBack.Name = "patientNoticeBack";
+            this.patientNoticeBack.Size = new System.Drawing.Size(75, 23);
+            this.patientNoticeBack.TabIndex = 7;
+            this.patientNoticeBack.Text = "Back";
+            this.patientNoticeBack.UseVisualStyleBackColor = true;
             // 
-            // label19
+            // patientNoticeType
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(233, 26);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(45, 13);
-            this.label19.TabIndex = 2;
-            this.label19.Text = "Doctor: ";
+            this.patientNoticeType.AutoSize = true;
+            this.patientNoticeType.Location = new System.Drawing.Point(233, 26);
+            this.patientNoticeType.Name = "patientNoticeType";
+            this.patientNoticeType.Size = new System.Drawing.Size(45, 13);
+            this.patientNoticeType.TabIndex = 2;
+            this.patientNoticeType.Text = "Doctor: ";
             // 
-            // listBox3
+            // patientNoticeList
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(25, 26);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(155, 147);
-            this.listBox3.TabIndex = 0;
+            this.patientNoticeList.FormattingEnabled = true;
+            this.patientNoticeList.Location = new System.Drawing.Point(25, 26);
+            this.patientNoticeList.Name = "patientNoticeList";
+            this.patientNoticeList.Size = new System.Drawing.Size(155, 147);
+            this.patientNoticeList.TabIndex = 0;
             // 
-            // button13
+            // patientNoticeDeny
             // 
-            this.button13.Location = new System.Drawing.Point(284, 150);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(89, 23);
-            this.button13.TabIndex = 14;
-            this.button13.Text = "Deny";
-            this.button13.UseVisualStyleBackColor = true;
+            this.patientNoticeDeny.Location = new System.Drawing.Point(284, 150);
+            this.patientNoticeDeny.Name = "patientNoticeDeny";
+            this.patientNoticeDeny.Size = new System.Drawing.Size(89, 23);
+            this.patientNoticeDeny.TabIndex = 14;
+            this.patientNoticeDeny.Text = "Deny";
+            this.patientNoticeDeny.UseVisualStyleBackColor = true;
             // 
-            // panel3
+            // patientRecordPanel
             // 
-            this.panel3.Controls.Add(this.richTextBox2);
-            this.panel3.Controls.Add(this.button16);
-            this.panel3.Location = new System.Drawing.Point(25, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(473, 201);
-            this.panel3.TabIndex = 15;
-            this.panel3.Visible = false;
+            this.patientRecordPanel.Controls.Add(this.patientRecordTB);
+            this.patientRecordPanel.Controls.Add(this.patientRecordBackBtn);
+            this.patientRecordPanel.Location = new System.Drawing.Point(198, 77);
+            this.patientRecordPanel.Name = "patientRecordPanel";
+            this.patientRecordPanel.Size = new System.Drawing.Size(473, 201);
+            this.patientRecordPanel.TabIndex = 15;
+            this.patientRecordPanel.Visible = false;
             // 
-            // richTextBox2
+            // patientRecordTB
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(3, 3);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(386, 192);
-            this.richTextBox2.TabIndex = 11;
-            this.richTextBox2.Text = "";
+            this.patientRecordTB.Location = new System.Drawing.Point(14, 3);
+            this.patientRecordTB.Name = "patientRecordTB";
+            this.patientRecordTB.Size = new System.Drawing.Size(386, 192);
+            this.patientRecordTB.TabIndex = 11;
+            this.patientRecordTB.Text = "";
             // 
-            // button16
+            // patientRecordBackBtn
             // 
-            this.button16.Location = new System.Drawing.Point(395, 172);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(75, 23);
-            this.button16.TabIndex = 7;
-            this.button16.Text = "Back";
-            this.button16.UseVisualStyleBackColor = true;
+            this.patientRecordBackBtn.Location = new System.Drawing.Point(406, 172);
+            this.patientRecordBackBtn.Name = "patientRecordBackBtn";
+            this.patientRecordBackBtn.Size = new System.Drawing.Size(64, 23);
+            this.patientRecordBackBtn.TabIndex = 7;
+            this.patientRecordBackBtn.Text = "Back";
+            this.patientRecordBackBtn.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -787,11 +787,11 @@
             this.patientPhonePanel.PerformLayout();
             this.patientAppPanel.ResumeLayout(false);
             this.patientAppPanel.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
+            this.patientRefillPanel.ResumeLayout(false);
+            this.patientRefillPanel.PerformLayout();
+            this.patientNoticePanel.ResumeLayout(false);
+            this.patientNoticePanel.PerformLayout();
+            this.patientRecordPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -815,11 +815,11 @@
         private System.Windows.Forms.RadioButton radioButtonDoctor;
         private System.Windows.Forms.Label loginInvalid;
         private System.Windows.Forms.Panel patientPanel;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button patientBack;
+        private System.Windows.Forms.Button patientNoticeBtn;
+        private System.Windows.Forms.Button patientRefillBtn;
         private System.Windows.Forms.Button patientPhoneBtn;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button patientRecordBtn;
         private System.Windows.Forms.Button patientRequestAppBnt;
         private System.Windows.Forms.Panel patientAppPanel;
         private System.Windows.Forms.Button patientAppMakeAppBtn;
@@ -840,32 +840,32 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Panel patientRefillPanel;
+        private System.Windows.Forms.Panel patientNoticePanel;
+        private System.Windows.Forms.Panel patientRecordPanel;
+        private System.Windows.Forms.RichTextBox patientRecordTB;
+        private System.Windows.Forms.Button patientRecordBackBtn;
+        private System.Windows.Forms.Button patientNoticeDeny;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.ListBox listBox3;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.RichTextBox patientNoticeDescrip;
+        private System.Windows.Forms.Button patientNoticeAccept;
+        private System.Windows.Forms.Button patientNoticeBack;
+        private System.Windows.Forms.Label patientNoticeType;
+        private System.Windows.Forms.ListBox patientNoticeList;
+        private System.Windows.Forms.Label patientRefillMax;
+        private System.Windows.Forms.Label patientRefillTimes;
+        private System.Windows.Forms.Label patientRefillDates;
+        private System.Windows.Forms.Label patientRefillMed;
+        private System.Windows.Forms.Label patientRefillID;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button patientRefillSend;
+        private System.Windows.Forms.Button patientRefillBack;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox patientRefillList;
     }
 }
 
