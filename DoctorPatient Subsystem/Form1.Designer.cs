@@ -34,7 +34,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.LoginPanel = new System.Windows.Forms.Panel();
+            this.loginPanel = new System.Windows.Forms.Panel();
             this.loginInvalid = new System.Windows.Forms.Label();
             this.loginLoginBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -78,7 +78,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.patientRefillID = new System.Windows.Forms.Label();
             this.patientRefillMed = new System.Windows.Forms.Label();
-            this.patientRefillDates = new System.Windows.Forms.Label();
+            this.patientRefillDate = new System.Windows.Forms.Label();
             this.patientRefillTimes = new System.Windows.Forms.Label();
             this.patientRefillMax = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -96,7 +96,7 @@
             this.patientRecordTB = new System.Windows.Forms.RichTextBox();
             this.patientRecordBackBtn = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.LoginPanel.SuspendLayout();
+            this.loginPanel.SuspendLayout();
             this.patientPanel.SuspendLayout();
             this.patientPhonePanel.SuspendLayout();
             this.patientAppPanel.SuspendLayout();
@@ -157,21 +157,22 @@
             this.button5.Text = "Search";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // LoginPanel
+            // loginPanel
             // 
-            this.LoginPanel.Controls.Add(this.loginInvalid);
-            this.LoginPanel.Controls.Add(this.loginLoginBtn);
-            this.LoginPanel.Controls.Add(this.label2);
-            this.LoginPanel.Controls.Add(this.label1);
-            this.LoginPanel.Controls.Add(this.loginPasswordTB);
-            this.LoginPanel.Controls.Add(this.loginIDtB);
-            this.LoginPanel.Controls.Add(this.radioButtonPatient);
-            this.LoginPanel.Controls.Add(this.radioButtonDoctor);
-            this.LoginPanel.Location = new System.Drawing.Point(785, 454);
-            this.LoginPanel.Name = "LoginPanel";
-            this.LoginPanel.Size = new System.Drawing.Size(767, 426);
-            this.LoginPanel.TabIndex = 12;
-            this.LoginPanel.TabStop = true;
+            this.loginPanel.Controls.Add(this.loginInvalid);
+            this.loginPanel.Controls.Add(this.loginLoginBtn);
+            this.loginPanel.Controls.Add(this.label2);
+            this.loginPanel.Controls.Add(this.label1);
+            this.loginPanel.Controls.Add(this.loginPasswordTB);
+            this.loginPanel.Controls.Add(this.loginIDtB);
+            this.loginPanel.Controls.Add(this.radioButtonPatient);
+            this.loginPanel.Controls.Add(this.radioButtonDoctor);
+            this.loginPanel.Location = new System.Drawing.Point(773, 455);
+            this.loginPanel.Name = "loginPanel";
+            this.loginPanel.Size = new System.Drawing.Size(767, 426);
+            this.loginPanel.TabIndex = 12;
+            this.loginPanel.TabStop = true;
+            this.loginPanel.Visible = false;
             // 
             // loginInvalid
             // 
@@ -253,13 +254,15 @@
             this.patientPanel.Controls.Add(this.patientNoticePanel);
             this.patientPanel.Controls.Add(this.patientRecordPanel);
             this.patientPanel.Controls.Add(this.patientAppPanel);
+            this.patientPanel.Controls.Add(this.patientRefillPanel);
+            this.patientPanel.Controls.Add(this.patientPhonePanel);
             this.patientPanel.Controls.Add(this.patientBack);
             this.patientPanel.Controls.Add(this.patientNoticeBtn);
             this.patientPanel.Controls.Add(this.patientRefillBtn);
             this.patientPanel.Controls.Add(this.patientPhoneBtn);
             this.patientPanel.Controls.Add(this.patientRecordBtn);
             this.patientPanel.Controls.Add(this.patientRequestAppBnt);
-            this.patientPanel.Location = new System.Drawing.Point(12, 12);
+            this.patientPanel.Location = new System.Drawing.Point(715, 495);
             this.patientPanel.Name = "patientPanel";
             this.patientPanel.Size = new System.Drawing.Size(776, 397);
             this.patientPanel.TabIndex = 13;
@@ -273,7 +276,7 @@
             this.patientPhonePanel.Controls.Add(this.patientPhoneBackBtn);
             this.patientPhonePanel.Controls.Add(this.patientPhoneDocLabel);
             this.patientPhonePanel.Controls.Add(this.patientPhoneList);
-            this.patientPhonePanel.Location = new System.Drawing.Point(25, 0);
+            this.patientPhonePanel.Location = new System.Drawing.Point(709, 155);
             this.patientPhonePanel.Name = "patientPhonePanel";
             this.patientPhonePanel.Size = new System.Drawing.Size(473, 201);
             this.patientPhonePanel.TabIndex = 12;
@@ -505,8 +508,7 @@
             // 
             this.patientRefillPanel.Controls.Add(this.patientRefillMax);
             this.patientRefillPanel.Controls.Add(this.patientRefillTimes);
-            this.patientRefillPanel.Controls.Add(this.patientPhonePanel);
-            this.patientRefillPanel.Controls.Add(this.patientRefillDates);
+            this.patientRefillPanel.Controls.Add(this.patientRefillDate);
             this.patientRefillPanel.Controls.Add(this.patientRefillMed);
             this.patientRefillPanel.Controls.Add(this.patientRefillID);
             this.patientRefillPanel.Controls.Add(this.label9);
@@ -517,7 +519,7 @@
             this.patientRefillPanel.Controls.Add(this.patientRefillBack);
             this.patientRefillPanel.Controls.Add(this.label6);
             this.patientRefillPanel.Controls.Add(this.patientRefillList);
-            this.patientRefillPanel.Location = new System.Drawing.Point(25, 0);
+            this.patientRefillPanel.Location = new System.Drawing.Point(206, 42);
             this.patientRefillPanel.Name = "patientRefillPanel";
             this.patientRefillPanel.Size = new System.Drawing.Size(473, 201);
             this.patientRefillPanel.TabIndex = 13;
@@ -615,14 +617,14 @@
             this.patientRefillMed.TabIndex = 17;
             this.patientRefillMed.Text = "Refill ID: ";
             // 
-            // patientRefillDates
+            // patientRefillDate
             // 
-            this.patientRefillDates.AutoSize = true;
-            this.patientRefillDates.Location = new System.Drawing.Point(260, 65);
-            this.patientRefillDates.Name = "patientRefillDates";
-            this.patientRefillDates.Size = new System.Drawing.Size(50, 13);
-            this.patientRefillDates.TabIndex = 18;
-            this.patientRefillDates.Text = "Refill ID: ";
+            this.patientRefillDate.AutoSize = true;
+            this.patientRefillDate.Location = new System.Drawing.Point(260, 65);
+            this.patientRefillDate.Name = "patientRefillDate";
+            this.patientRefillDate.Size = new System.Drawing.Size(50, 13);
+            this.patientRefillDate.TabIndex = 18;
+            this.patientRefillDate.Text = "Refill ID: ";
             // 
             // patientRefillTimes
             // 
@@ -664,14 +666,13 @@
             // 
             this.patientNoticePanel.Controls.Add(this.patientNoticeDeny);
             this.patientNoticePanel.Controls.Add(this.label17);
-            this.patientNoticePanel.Controls.Add(this.patientRefillPanel);
             this.patientNoticePanel.Controls.Add(this.label18);
             this.patientNoticePanel.Controls.Add(this.patientNoticeDescrip);
             this.patientNoticePanel.Controls.Add(this.patientNoticeAccept);
             this.patientNoticePanel.Controls.Add(this.patientNoticeBack);
             this.patientNoticePanel.Controls.Add(this.patientNoticeType);
             this.patientNoticePanel.Controls.Add(this.patientNoticeList);
-            this.patientNoticePanel.Location = new System.Drawing.Point(53, 362);
+            this.patientNoticePanel.Location = new System.Drawing.Point(61, 362);
             this.patientNoticePanel.Name = "patientNoticePanel";
             this.patientNoticePanel.Size = new System.Drawing.Size(473, 201);
             this.patientNoticePanel.TabIndex = 14;
@@ -794,7 +795,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 629);
             this.Controls.Add(this.patientPanel);
-            this.Controls.Add(this.LoginPanel);
+            this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.textBox2);
@@ -803,8 +804,8 @@
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.LoginPanel.ResumeLayout(false);
-            this.LoginPanel.PerformLayout();
+            this.loginPanel.ResumeLayout(false);
+            this.loginPanel.PerformLayout();
             this.patientPanel.ResumeLayout(false);
             this.patientPhonePanel.ResumeLayout(false);
             this.patientPhonePanel.PerformLayout();
@@ -828,7 +829,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Panel LoginPanel;
+        private System.Windows.Forms.Panel loginPanel;
         private System.Windows.Forms.Button loginLoginBtn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -878,7 +879,7 @@
         private System.Windows.Forms.ListBox patientNoticeList;
         private System.Windows.Forms.Label patientRefillMax;
         private System.Windows.Forms.Label patientRefillTimes;
-        private System.Windows.Forms.Label patientRefillDates;
+        private System.Windows.Forms.Label patientRefillDate;
         private System.Windows.Forms.Label patientRefillMed;
         private System.Windows.Forms.Label patientRefillID;
         private System.Windows.Forms.Label label9;

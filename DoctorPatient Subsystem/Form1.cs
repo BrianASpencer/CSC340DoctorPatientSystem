@@ -86,7 +86,7 @@ namespace DoctorPatient_Subsystem
                 }
                 else
                 {
-                    LoginPanel.Visible=false;
+                    loginPanel.Visible=false;
                 }
             }
             else
@@ -127,10 +127,11 @@ namespace DoctorPatient_Subsystem
                 }
                 else
                 {
-                    LoginPanel.Visible=false;
+                    loginPanel.Visible=false;
                 }
             }
         }
+
 
 
         ////patient's panel////
@@ -194,19 +195,18 @@ namespace DoctorPatient_Subsystem
 
         }
 
-
         //patient's request phone call interactions
 
         private void patientPhoneList_SelectedIndexChanged(object sender, EventArgs e)
         {
             //selectedDoc = (Doctor)List[patientAppDocListBox.SelectedIndex];
-            //patientAppDoctorLable.Text += "" + selectedDoc.getName();
+            //patientPhoneDoctorLable.Text += "" + selectedDoc.getName();
         }
 
         private void patientPhoneBackBtn_Click(object sender, EventArgs e)
         {
             patientPhoneDocLabel.Text = "";
-            patientAppDocListBox.Items.Clear();
+            patientPhoneList.Items.Clear();
             patientPhoneDescrip.Text = "";
 
             patientPhonePanel.Visible = false;
@@ -224,32 +224,59 @@ namespace DoctorPatient_Subsystem
 
         private void patientPhoneSendBtn_Click(object sender, EventArgs e)
         {
+            //int docId = selectedDoc.getId(); ;
+            //string docName = selectedDoc.getName();
+            int patId = userPatient.getId();
+            string patName = userPatient.getName();
+            string patPhoneNum = userPatient.getPhoneNum();
+            string descrip = patientPhoneDescrip.Text;
+
+            //create message/notice
 
         }
-
 
         //patient's request refill interactions
 
         private void patientRefillBtn_Click(object sender, EventArgs e)
         {
+            patientPhonePanel.Visible = true;
 
+            List.Clear();
+            //make list of refills in data base
+
+            //selectedDoc = (refill)List[0];
         }
 
         private void patientRefillList_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            //Refill selectedRe = (Refill)List[patientRefillList.SelectedIndex];
+            //patientRefillID.Text = selectedRe.getRefillId();
+            //patientRefillMed.Text = selectedRe.getMed();
+            //patientRefillDate.Text = selectedRe.getGoodDate();
+            //patientRefillTimes.Text = selectedRe.getTimes();
+            //patientRefillMax.Text = selectedRe.getMax();
         }
 
         private void patientRefillSend_Click(object sender, EventArgs e)
         {
-
+            //Refill selectedRe = (Refill)List[patientRefillList.SelectedIndex];
+            //int refillId= selectedRe.getRefillId();
+            
+            //make message/notice
         }
 
         private void patientRefillBack_Click(object sender, EventArgs e)
         {
+            patientRefillList.Items.Clear();
 
+            patientRefillID.Text = "";
+            patientRefillMed.Text = "";
+            patientRefillDate.Text = "";
+            patientRefillTimes.Text = "";
+            patientRefillMax.Text = "";
+
+            patientPhonePanel.Visible = false;
         }
-
 
         //patient's View Notices interactions
 
@@ -278,25 +305,32 @@ namespace DoctorPatient_Subsystem
 
         }
 
-
         //patient's view medical record
 
         private void patientRecordBtn_Click(object sender, EventArgs e)
         {
+            patientRecordPanel.Visible = true;
 
+            patientRecordTB.Text = userPatient.getMedRecord();
         }
 
         private void patientRecordBackBtn_Click(object sender, EventArgs e)
         {
+            patientRecordTB.Text = "";
 
+            patientRecordPanel.Visible = false;
         }
-
 
         //patient's back btn
 
         private void patientBack_Click(object sender, EventArgs e)
         {
+            loginIDtB.Text = "";
+            loginPasswordTB.Text = "";
 
+            loginPanel.Visible = true;
+            loginPanel.Location=new Point(0,0);
+            patientPanel.Visible = false;
         }
 
 

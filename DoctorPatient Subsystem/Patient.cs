@@ -16,6 +16,7 @@ namespace DoctorPatient_Subsystem
         string dateOfBirth;
         string drugAllergies;
         string address;
+        string medRecord;
 
         //gets
         public int getId()
@@ -46,6 +47,11 @@ namespace DoctorPatient_Subsystem
         public string getAdress()
         {
             return address;
+        }
+
+        public string getMedRecord()
+        {
+            return medRecord;
         }
 
         //retrieve data from database
@@ -81,6 +87,7 @@ namespace DoctorPatient_Subsystem
                 phoneNumber = row["phoneNumber"].ToString();
                 dateOfBirth = row["birth"].ToString();
                 drugAllergies = row["allergies"].ToString();
+                medRecord = row["medRecord"].ToString();
             }
 
         }
