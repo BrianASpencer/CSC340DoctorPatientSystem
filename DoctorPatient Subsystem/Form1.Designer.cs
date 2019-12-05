@@ -525,7 +525,7 @@
             this.patientRefillPanel.Controls.Add(this.patientRefillBack);
             this.patientRefillPanel.Controls.Add(this.label6);
             this.patientRefillPanel.Controls.Add(this.patientRefillList);
-            this.patientRefillPanel.Location = new System.Drawing.Point(206, 42);
+            this.patientRefillPanel.Location = new System.Drawing.Point(392, 306);
             this.patientRefillPanel.Name = "patientRefillPanel";
             this.patientRefillPanel.Size = new System.Drawing.Size(473, 201);
             this.patientRefillPanel.TabIndex = 13;
@@ -659,7 +659,7 @@
             this.patientPhonePanel.Controls.Add(this.patientPhoneBackBtn);
             this.patientPhonePanel.Controls.Add(this.patientPhoneDocLabel);
             this.patientPhonePanel.Controls.Add(this.patientPhoneList);
-            this.patientPhonePanel.Location = new System.Drawing.Point(685, 155);
+            this.patientPhonePanel.Location = new System.Drawing.Point(203, 37);
             this.patientPhonePanel.Name = "patientPhonePanel";
             this.patientPhonePanel.Size = new System.Drawing.Size(473, 201);
             this.patientPhonePanel.TabIndex = 12;

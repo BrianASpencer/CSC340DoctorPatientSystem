@@ -14,8 +14,8 @@ namespace DoctorPatient_Subsystem
     public partial class Form1 : Form
     {
         Patient userPatient;
-        //Doctor userDoctor;
-        //Doctor selectedDoc;
+        Doctor userDoctor;
+        Doctor selectedDoc;
         Patient selectedPat;
         ArrayList List = new ArrayList();
 
@@ -140,8 +140,8 @@ namespace DoctorPatient_Subsystem
 
         private void patientAppMakeAppBtn_Click(object sender, EventArgs e)
         {
-            //int doctorId=selectedDoc.getId();
-            //string doctorName = selectedDoc.getName();
+            int doctorId=selectedDoc.getIDNumber();
+            string doctorName = selectedDoc.getName();
             int patientId = userPatient.getId();
             string patientName = userPatient.getName();
             string description=patientAppDescrip.Text;
@@ -159,8 +159,8 @@ namespace DoctorPatient_Subsystem
             
 
             //make appointment 
-            //Appointment newApp = new Appointment(doctorId, patientId, doctorName, patientName,
-                //dateOfApp, description, confirmationNum);
+            Appointment newApp = new Appointment(doctorId, patientId, doctorName, patientName,
+                dateOfApp, description, confirmationNum);
 
             patientAppDoctorLable.Text = "";
             patientAppDescrip.Text = "";
@@ -176,7 +176,7 @@ namespace DoctorPatient_Subsystem
             List.Clear();
             //make list of doctors in data base
 
-            //selectedDoc = (Doctor)List[0];
+            selectedDoc = (Doctor)List[0];
         }
 
         private void patientAppBackBtn_Click(object sender, EventArgs e)
@@ -192,8 +192,8 @@ namespace DoctorPatient_Subsystem
 
         private void patientAppDocListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //selectedDoc = (Doctor)List[patientAppDocListBox.SelectedIndex];
-            //patientAppDoctorLable.Text += "" + selectedDoc.getName();
+            selectedDoc = (Doctor)List[patientAppDocListBox.SelectedIndex];
+            patientAppDoctorLable.Text += "" + selectedDoc.getName();
 
         }
 
@@ -201,8 +201,8 @@ namespace DoctorPatient_Subsystem
 
         private void patientPhoneList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //selectedDoc = (Doctor)List[patientAppDocListBox.SelectedIndex];
-            //patientPhoneDoctorLable.Text += "" + selectedDoc.getName();
+            selectedDoc = (Doctor)List[patientAppDocListBox.SelectedIndex];
+            patientPhoneDocLabel.Text += "" + selectedDoc.getName();
         }
 
         private void patientPhoneBackBtn_Click(object sender, EventArgs e)
@@ -222,13 +222,13 @@ namespace DoctorPatient_Subsystem
             List.Clear();
             //make list of doctors in data base
 
-            //selectedDoc = (Doctor)List[0];
+            selectedDoc = (Doctor)List[0];
         }
 
         private void patientPhoneSendBtn_Click(object sender, EventArgs e)
         {
-            //int docId = selectedDoc.getId(); ;
-            //string docName = selectedDoc.getName();
+            int docId = selectedDoc.getIDNumber(); ;
+            string docName = selectedDoc.getName();
             int patId = userPatient.getId();
             string patName = userPatient.getName();
             string patPhoneNum = userPatient.getPhoneNum();
@@ -248,23 +248,21 @@ namespace DoctorPatient_Subsystem
             List.Clear();
             //make list of refills in data base
 
-            //selectedDoc = (refill)List[0];
         }
 
         private void patientRefillList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Refill selectedRe = (Refill)List[patientRefillList.SelectedIndex];
-            //patientRefillID.Text = selectedRe.getRefillId();
-            //patientRefillMed.Text = selectedRe.getMed();
-            //patientRefillDate.Text = selectedRe.getGoodDate();
-            //patientRefillTimes.Text = selectedRe.getTimes();
-            //patientRefillMax.Text = selectedRe.getMax();
+            Refill selectedRe = (Refill)List[patientRefillList.SelectedIndex];
+            patientRefillID.Text = ""+selectedRe.getRefillID();
+            patientRefillMed.Text = selectedRe.getMedication();
+            patientRefillDate.Text = selectedRe.getTimePeriod();
+            patientRefillTimes.Text = ""+selectedRe.getTimesFilled();
         }
 
         private void patientRefillSend_Click(object sender, EventArgs e)
         {
-            //Refill selectedRe = (Refill)List[patientRefillList.SelectedIndex];
-            //int refillId= selectedRe.getRefillId();
+            Refill selectedRe = (Refill)List[patientRefillList.SelectedIndex];
+            int refillId= selectedRe.getRefillID();
             
             //make message/notice
         }
@@ -291,19 +289,19 @@ namespace DoctorPatient_Subsystem
             patientDisableBtns();
             //make list from notices with patId
             patientNoticePanel.Visible = true;
-            //patientNoticeType.Text = (Notice)List[0].getType;
-            //patientNoticeDescrip.Text = (Notice)List[0].getDescription();
+            patientNoticeType.Text = ((Message)List[0]).getTypeOfNotice();
+            patientNoticeDescrip.Text = ((Message)List[0]).getMessage();
             patientNoticePanel.Location = new Point(206, 42);
         }
 
         private void patientNoticeList_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            //Notice selectedNote=(Notice)List[patientNoticeList.SelectedIndex];
-            //patientNoticeType.Text = selectedNote.getType;
-            //patientNoticeDescrip.Text = selectedNote.getDescription();
+            Message selectedNote=(Message)List[patientNoticeList.SelectedIndex];
+            patientNoticeType.Text = selectedNote.getTypeOfNotice();
+            patientNoticeDescrip.Text = selectedNote.getMessage();
 
-            //if type is not acceptable/deniable disable accept and deny btns
+            //if type is not acceptable/deniable disable/vis accept and deny btns
         }
 
         private void patientNoticeAccept_Click(object sender, EventArgs e)

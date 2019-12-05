@@ -10,10 +10,16 @@ namespace DoctorPatient_Subsystem
 {
     class Refill
     {
+        int refillID;
         string timePeriod;
         int timesFilled;
         string medication;
         int noticeID;
+
+        public int getRefillID()
+        {
+            return this.refillID;
+        }
 
         public string getTimePeriod()
         {

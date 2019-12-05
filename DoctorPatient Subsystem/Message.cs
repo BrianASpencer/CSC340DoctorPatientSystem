@@ -17,6 +17,7 @@ namespace DoctorPatient_Subsystem
         int refillID;
         string message;
         int appointment;
+        bool isGranted;
 
         Message(int notID, string type, string date, int docID, int preID, int reID, string msg, int app)
         {
@@ -69,6 +70,17 @@ namespace DoctorPatient_Subsystem
         {
             return this.appointment;
         }
+
+        public bool getisGranted()
+        {
+            return isGranted;
+        }
+
+        public void setIsGranted(bool logic)
+        {
+            isGranted = logic;
+        }
+
 
         public void createMessage()
         {
