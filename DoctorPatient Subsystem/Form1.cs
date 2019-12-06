@@ -39,9 +39,9 @@ namespace DoctorPatient_Subsystem
 
         }
 
-        ////Login Panel////
+////Login Panel////
 
-        // Login interactions
+    // Login interactions
 
         private void LoginLoginBtn_Click(object sender, EventArgs e)
         {
@@ -155,9 +155,9 @@ namespace DoctorPatient_Subsystem
 
 
 
-        ////patient's panel////
+////patient's panel////
 
-        //patient's request appointment interactions
+    //patient's request appointment interactions
 
         private void patientAppMakeAppBtn_Click(object sender, EventArgs e)
         {
@@ -232,7 +232,7 @@ namespace DoctorPatient_Subsystem
 
         }
 
-        //patient's request phone call interactions
+    //patient's request phone call interactions
 
         private void patientPhoneList_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -289,7 +289,7 @@ namespace DoctorPatient_Subsystem
             }
         }
 
-        //patient's request refill interactions
+    //patient's request refill interactions
 
         private void patientRefillBtn_Click(object sender, EventArgs e)
         {
@@ -346,7 +346,7 @@ namespace DoctorPatient_Subsystem
             patientPhonePanel.Visible = false;
         }
 
-        //patient's View Notices interactions
+    //patient's View Notices interactions
 
         private void patientNoticeBtn_Click(object sender, EventArgs e)
         {
@@ -410,8 +410,9 @@ namespace DoctorPatient_Subsystem
             patientNoticePanel.Visible = false;
         }
 
-        //patient's view medical record
+    //patient's view medical record
 
+        //Record menu clicked
         private void patientRecordBtn_Click(object sender, EventArgs e)
         {
             patientRecordPanel.Visible = true;
@@ -421,7 +422,7 @@ namespace DoctorPatient_Subsystem
 
             patientRecordTB.Text = userPatient.getMedRecord();
         }
-
+        //back button was clicked in med record
         private void patientRecordBackBtn_Click(object sender, EventArgs e)
         {
             patientRecordTB.Text = "";
@@ -433,7 +434,7 @@ namespace DoctorPatient_Subsystem
 
         }
 
-        //patient's back btn
+    //patient's back btn
 
         private void patientBack_Click(object sender, EventArgs e)
         {
@@ -451,7 +452,7 @@ namespace DoctorPatient_Subsystem
             
         }
 
-
+    //Misc.
         //disables patient menu buttons
         public void patientDisableBtns()
         {
