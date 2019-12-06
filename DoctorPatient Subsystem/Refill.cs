@@ -16,7 +16,7 @@ namespace DoctorPatient_Subsystem
         int timesFilled;
         string medication;
         int noticeID;
-        int docID;
+        int doctorID;
 
         public int getRefillID()
         {
@@ -45,7 +45,7 @@ namespace DoctorPatient_Subsystem
 
         public int getDoctorID()
         {
-            return docID;
+            return doctorID;
         }
 
         public void createRefill()
@@ -60,7 +60,47 @@ namespace DoctorPatient_Subsystem
 
         public ArrayList retrieveRefillList(int patientId)
         {
-            return null;
+            ArrayList refillList = new ArrayList();
+
+            //prepare an SQL query to retrieve the patient 
+            DataTable myTable = new DataTable();
+            string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                Console.WriteLine("Connecting to MySQL...");
+                conn.Open();
+                string sql = "JOIN statement?? for id of patient's refill -- retrieve refill info?" + patientId; //placeholder for the real table name
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                //cmd.Parameters.AddWithValue("@myDate", dateString);
+                MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
+                myAdapter.Fill(myTable);
+                Console.WriteLine("Table is ready.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
+            //convert the retrieved data to events and save them to the list
+            foreach (DataRow row in myTable.Rows)
+            {
+                int reID = Int32.Parse(row["DoctorID"].ToString());
+                string timeP = row["timePeriod"].ToString();
+                int timesF = Int32.Parse(row["timesFilled"].ToString());
+                string med = row["medication"].ToString();
+                int noteID = Int32.Parse(row["noticeID"].ToString());
+                int docID = Int32.Parse(row["DoctorID"].ToString());
+
+                Refill loopRefill = new Refill(/*refillID, docID, noticeID, medication, timePeriod, timesFilled */);
+                refillList.Add(loopRefill);
+            }
+
+            if (refillList.Count == 0)
+            {
+                return null;
+            }
+            return refillList;
         }
 
         public void updateRefill()
