@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,13 +14,19 @@ namespace DoctorPatient_Subsystem
         string typeOfNotice;
         string date;
         int doctorID;
+        int patientID;
         int prescriptionID;
         int refillID;
         string message;
         int appointment;
         bool isGranted;
 
-        Message(int notID, string type, string date, int docID, int preID, int reID, string msg, int app)
+        public Message()
+        {
+
+        }
+
+        public Message(int notID, string type, string date, int docID, int preID, int reID, string msg, int app)
         {
             this.noticeID = notID;
             this.typeOfNotice = type;
@@ -29,6 +36,26 @@ namespace DoctorPatient_Subsystem
             this.refillID = reID;
             this.message = msg;
             this.appointment = app;
+        }
+
+        public Message(int docID, string type, int patID, string msg)
+        {
+            this.typeOfNotice = type;
+            this.doctorID = docID;
+            this.patientID = patID;
+            this.message = msg;
+
+            //insert new message
+        }
+
+        public Message(int docID, string type, int patID, int reID)
+        {
+            this.typeOfNotice = type;
+            this.doctorID = docID;
+            this.patientID = patID;
+            this.refillID = reID;
+
+            //insert new message
         }
 
         public int getNoticeID()
@@ -85,6 +112,11 @@ namespace DoctorPatient_Subsystem
         public void createMessage()
         {
             //SQL INSERT Statement goes here
+        }
+
+        public ArrayList retrieveMessagesList(string whereVar, int key)
+        {
+            return null;
         }
 
     }

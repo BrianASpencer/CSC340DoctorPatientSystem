@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace DoctorPatient_Subsystem
         int timesFilled;
         string medication;
         int noticeID;
+        int docID;
 
         public int getRefillID()
         {
@@ -41,6 +43,11 @@ namespace DoctorPatient_Subsystem
             return this.noticeID;
         }
 
+        public int getDoctorID()
+        {
+            return docID;
+        }
+
         public void createRefill()
         {
 
@@ -49,6 +56,11 @@ namespace DoctorPatient_Subsystem
         public void retrieveRefillData()
         {
 
+        }
+
+        public ArrayList retrieveRefillList(int patientId)
+        {
+            return null;
         }
 
         public void updateRefill()

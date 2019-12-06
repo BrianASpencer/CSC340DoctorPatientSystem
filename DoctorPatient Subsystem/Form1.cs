@@ -23,7 +23,8 @@ namespace DoctorPatient_Subsystem
         {
             InitializeComponent();
 
-            
+            loginPanel.Visible = true;
+            loginPanel.Location = new Point(0,0);
             System.Object[] ItemObject = new System.Object[5];
             for (int i = 0; i <= 4; i++)
             {
@@ -48,6 +49,9 @@ namespace DoctorPatient_Subsystem
             String id = loginIDtB.Text;
             String password = loginPasswordTB.Text;
             String sqlPassword="";
+
+            //check which is trying to login
+            //if the doctor is checked
             if (radioButtonDoctor.Checked)
             {
 
@@ -86,7 +90,14 @@ namespace DoctorPatient_Subsystem
                 }
                 else
                 {
-                    loginPanel.Visible=false;
+                    
+                    loginPasswordTB.Text = "";
+                    loginIDtB.Text = "";
+                    loginPanel.Location = new Point(773, 455);
+                    loginPanel.Visible = false;
+
+                    //make doctor panel visable
+                    //move doctor panel
                 }
             }
             else
@@ -127,7 +138,17 @@ namespace DoctorPatient_Subsystem
                 }
                 else
                 {
-                    loginPanel.Visible=false;
+                    
+                    loginPasswordTB.Text = "";
+                    loginIDtB.Text = "";
+                    loginPanel.Location = new Point(773, 455);
+                    loginPanel.Visible = false;
+
+                    //make Patient panel visable
+                    patientPanel.Visible = true;
+                    //move Patient panel
+                    patientPanel.Location = new Point(0, 0);
+
                 }
             }
         }
@@ -140,43 +161,53 @@ namespace DoctorPatient_Subsystem
 
         private void patientAppMakeAppBtn_Click(object sender, EventArgs e)
         {
-            int doctorId=selectedDoc.getIDNumber();
-            string doctorName = selectedDoc.getName();
-            int patientId = userPatient.getId();
-            string patientName = userPatient.getName();
-            string description=patientAppDescrip.Text;
-            string dateOfApp = patientAppDate.Value.Year + "-" + patientAppDate.Value.Month +
-                "-" + patientAppDate.Value.Day + " " + patientAppTime.Value.Hour + ":" + 
-                patientAppTime.Value.Minute + ":00";
-            patientAppConfirNum.Text =dateOfApp;
-
-            Random rnd = new Random();
-            string confirmationNum ="";
-            for(int i = 0; i < 6; i++)
+            if (List != null)
             {
-                confirmationNum += rnd.Next(0, 9);
+                int doctorId = selectedDoc.getIDNumber();
+                string doctorName = selectedDoc.getName();
+                int patientId = userPatient.getId();
+                string patientName = userPatient.getName();
+                string description = patientAppDescrip.Text;
+                string dateOfApp = patientAppDate.Value.Year + "-" + patientAppDate.Value.Month +
+                    "-" + patientAppDate.Value.Day + " " + patientAppTime.Value.Hour + ":" +
+                    patientAppTime.Value.Minute + ":00";
+                patientAppConfirNum.Text = dateOfApp;
+
+                Random rnd = new Random();
+                string confirmationNum = "";
+                for (int i = 0; i < 6; i++)
+                {
+                    confirmationNum += rnd.Next(0, 9);
+                }
+
+
+                //make appointment 
+                Appointment newApp = new Appointment(doctorId, patientId, doctorName, patientName,
+                    dateOfApp, description, confirmationNum);
+
+                patientAppDoctorLable.Text = "";
+                patientAppDescrip.Text = "";
+
+                patientAppConfirNum.Text = dateOfApp;
             }
-            
-
-            //make appointment 
-            Appointment newApp = new Appointment(doctorId, patientId, doctorName, patientName,
-                dateOfApp, description, confirmationNum);
-
-            patientAppDoctorLable.Text = "";
-            patientAppDescrip.Text = "";
-
-            patientAppConfirNum.Text = dateOfApp;
         }
 
         private void patientRequestAppBnt_Click(object sender, EventArgs e)
         {
             patientAppPanel.Visible=true;
+            patientAppPanel.Location = new Point(203, 37);
             patientDisableBtns();
 
             List.Clear();
-            //make list of doctors in data base
 
-            selectedDoc = (Doctor)List[0];
+            //make list of doctors in data base
+            List = new Doctor().retrieveDoctorList();
+
+            if (List != null)
+            {
+                selectedDoc = (Doctor)List[0];
+            }
+            
         }
 
         private void patientAppBackBtn_Click(object sender, EventArgs e)
@@ -187,13 +218,17 @@ namespace DoctorPatient_Subsystem
             patientAppConfirNum.Text = "";
 
             patientEnableBtns();
+            patientAppPanel.Location = new Point(28, 362);
             patientAppPanel.Visible=false;
         }
 
         private void patientAppDocListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selectedDoc = (Doctor)List[patientAppDocListBox.SelectedIndex];
-            patientAppDoctorLable.Text += "" + selectedDoc.getName();
+            if (List != null)
+            {
+                selectedDoc = (Doctor)List[patientAppDocListBox.SelectedIndex];
+                patientAppDoctorLable.Text += "" + selectedDoc.getName();
+            }
 
         }
 
@@ -201,8 +236,11 @@ namespace DoctorPatient_Subsystem
 
         private void patientPhoneList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selectedDoc = (Doctor)List[patientAppDocListBox.SelectedIndex];
-            patientPhoneDocLabel.Text += "" + selectedDoc.getName();
+            if (List != null)
+            {
+                selectedDoc = (Doctor)List[patientAppDocListBox.SelectedIndex];
+                patientPhoneDocLabel.Text += "" + selectedDoc.getName();
+            }
         }
 
         private void patientPhoneBackBtn_Click(object sender, EventArgs e)
@@ -211,31 +249,44 @@ namespace DoctorPatient_Subsystem
             patientPhoneList.Items.Clear();
             patientPhoneDescrip.Text = "";
 
+            patientPhonePanel.Location = new Point(79, 348);
             patientPhonePanel.Visible = false;
+
             patientEnableBtns();
         }
 
         private void patientPhoneBtn_Click(object sender, EventArgs e)
         {
             patientPhonePanel.Visible = true;
+            patientPhonePanel.Location = new Point(203, 37);
 
             List.Clear();
             //make list of doctors in data base
+            List = new Doctor().retrieveNonBusyDoctorList();
 
-            selectedDoc = (Doctor)List[0];
+            if (List != null)
+            {
+                selectedDoc = (Doctor)List[0];
+            }
         }
 
         private void patientPhoneSendBtn_Click(object sender, EventArgs e)
         {
-            int docId = selectedDoc.getIDNumber(); ;
-            string docName = selectedDoc.getName();
-            int patId = userPatient.getId();
-            string patName = userPatient.getName();
-            string patPhoneNum = userPatient.getPhoneNum();
-            string descrip = patientPhoneDescrip.Text;
+            if (List != null)
+            {
+                int docId = selectedDoc.getIDNumber(); ;
+                string docName = selectedDoc.getName();
+                int patId = userPatient.getId();
+                string patName = userPatient.getName();
+                string patPhoneNum = userPatient.getPhoneNum();
+                string descrip = patientPhoneDescrip.Text;
 
-            //create message/notice
+                string message = docName + ", \n" + patName + ": " + descrip +
+                    "\n you can reach them at " + patPhoneNum;
 
+                //create message/notice
+                new Message(docId, "Phone Call", patId, message);
+            }
         }
 
         //patient's request refill interactions
@@ -243,28 +294,40 @@ namespace DoctorPatient_Subsystem
         private void patientRefillBtn_Click(object sender, EventArgs e)
         {
             patientPhonePanel.Visible = true;
+            patientPhonePanel.Location = new Point(203, 37);
+
             patientDisableBtns();
 
             List.Clear();
             //make list of refills in data base
+            List = new Refill().retrieveRefillList(userPatient.getId());
 
         }
 
         private void patientRefillList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Refill selectedRe = (Refill)List[patientRefillList.SelectedIndex];
-            patientRefillID.Text = ""+selectedRe.getRefillID();
-            patientRefillMed.Text = selectedRe.getMedication();
-            patientRefillDate.Text = selectedRe.getTimePeriod();
-            patientRefillTimes.Text = ""+selectedRe.getTimesFilled();
+            if (List != null)
+            {
+                Refill selectedRe = (Refill)List[patientRefillList.SelectedIndex];
+                patientRefillID.Text = "" + selectedRe.getRefillID();
+                patientRefillMed.Text = selectedRe.getMedication();
+                patientRefillDate.Text = selectedRe.getTimePeriod();
+                patientRefillTimes.Text = "" + selectedRe.getTimesFilled();
+            }
         }
 
         private void patientRefillSend_Click(object sender, EventArgs e)
         {
-            Refill selectedRe = (Refill)List[patientRefillList.SelectedIndex];
-            int refillId= selectedRe.getRefillID();
-            
-            //make message/notice
+            if (List != null)
+            {
+                Refill selectedRe = (Refill)List[patientRefillList.SelectedIndex];
+                int refillId = selectedRe.getRefillID();
+                int docID = selectedRe.getDoctorID();
+
+
+                //make message/notice
+                new Message(docID, "Refill Request", userPatient.getId(), refillId);
+            }
         }
 
         private void patientRefillBack_Click(object sender, EventArgs e)
@@ -279,6 +342,7 @@ namespace DoctorPatient_Subsystem
 
             patientEnableBtns();
 
+            patientPhonePanel.Location = new Point(392, 306);
             patientPhonePanel.Visible = false;
         }
 
@@ -287,31 +351,51 @@ namespace DoctorPatient_Subsystem
         private void patientNoticeBtn_Click(object sender, EventArgs e)
         {
             patientDisableBtns();
-            //make list from notices with patId
+            
             patientNoticePanel.Visible = true;
+            patientNoticePanel.Location = new Point(203, 37);
+
+            //make list from notices with patId
+            List = new Message().retrieveMessagesList("PatientID",userPatient.getId());
+
+            if (List != null)
+            { 
             patientNoticeType.Text = ((Message)List[0]).getTypeOfNotice();
             patientNoticeDescrip.Text = ((Message)List[0]).getMessage();
-            patientNoticePanel.Location = new Point(206, 42);
+            
+            }
         }
 
         private void patientNoticeList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            patientNoticeAccept.Enabled = true;
+            patientNoticeDeny.Enabled = true;
 
-            Message selectedNote=(Message)List[patientNoticeList.SelectedIndex];
-            patientNoticeType.Text = selectedNote.getTypeOfNotice();
-            patientNoticeDescrip.Text = selectedNote.getMessage();
+            if (List != null)
+            {
+                Message selectedNote = (Message)List[patientNoticeList.SelectedIndex];
+                patientNoticeType.Text = selectedNote.getTypeOfNotice();
+                patientNoticeDescrip.Text = selectedNote.getMessage();
+                //if type is not acceptable/deniable disable/vis accept and deny btns
+                if (selectedNote.getTypeOfNotice() != "Record Request")
+                {
+                    patientNoticeAccept.Enabled = false;
+                    patientNoticeDeny.Enabled = false;
+                }
+            }
 
-            //if type is not acceptable/deniable disable/vis accept and deny btns
         }
 
         private void patientNoticeAccept_Click(object sender, EventArgs e)
         {
-
+            //checks what type of message it is
+            //create message
         }
 
         private void patientNoticeDeny_Click(object sender, EventArgs e)
         {
-
+            //checks what type of message it is
+            //create message
         }
 
         private void patientNoticeBack_Click(object sender, EventArgs e)
@@ -321,8 +405,9 @@ namespace DoctorPatient_Subsystem
             patientNoticeList.Items.Clear();
             patientNoticeType.Text = "";
             patientNoticeDescrip.Text = "";
-            patientNoticePanel.Visible = false;
+            
             patientNoticePanel.Location = new Point(303, 334);
+            patientNoticePanel.Visible = false;
         }
 
         //patient's view medical record
@@ -330,6 +415,8 @@ namespace DoctorPatient_Subsystem
         private void patientRecordBtn_Click(object sender, EventArgs e)
         {
             patientRecordPanel.Visible = true;
+            patientRecordPanel.Location = new Point(203, 37);
+
             patientDisableBtns();
 
             patientRecordTB.Text = userPatient.getMedRecord();
@@ -340,6 +427,8 @@ namespace DoctorPatient_Subsystem
             patientRecordTB.Text = "";
 
             patientEnableBtns();
+
+            patientRecordPanel.Location = new Point(750, 77);
             patientRecordPanel.Visible = false;
 
         }
@@ -348,16 +437,22 @@ namespace DoctorPatient_Subsystem
 
         private void patientBack_Click(object sender, EventArgs e)
         {
+            //resets login inputs
             loginIDtB.Text = "";
             loginPasswordTB.Text = "";
 
+            //move and turn visible off for patietn panel
+            patientPanel.Location = new Point(547, 578);
+            patientPanel.Visible = false;
+
+            //more and make visible for the login panel
             loginPanel.Visible = true;
             loginPanel.Location=new Point(0,0);
-            patientPanel.Visible = false;
+            
         }
 
 
-
+        //disables patient menu buttons
         public void patientDisableBtns()
         {
             patientRequestAppBnt.Enabled = false;
@@ -368,6 +463,7 @@ namespace DoctorPatient_Subsystem
             patientBack.Enabled = false;
         }
 
+        //enables patient menu buttons
         public void patientEnableBtns()
         {
             patientRequestAppBnt.Enabled = true;
