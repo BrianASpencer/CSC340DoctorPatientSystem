@@ -23,8 +23,8 @@ namespace DoctorPatient_Subsystem
         {
             InitializeComponent();
 
-            loginPanel.Visible = true;
-            loginPanel.Location = new Point(0,0);
+            //loginPanel.Visible = true;
+            //loginPanel.Location = new Point(0,0);
             System.Object[] ItemObject = new System.Object[5];
             for (int i = 0; i <= 4; i++)
             {
@@ -188,7 +188,7 @@ namespace DoctorPatient_Subsystem
                 patientAppDoctorLable.Text = "";
                 patientAppDescrip.Text = "";
 
-                patientAppConfirNum.Text = dateOfApp;
+                patientAppConfirNum.Text = confirmationNum;
             }
         }
 
@@ -197,6 +197,8 @@ namespace DoctorPatient_Subsystem
             patientAppPanel.Visible=true;
             patientAppPanel.Location = new Point(203, 37);
             patientDisableBtns();
+
+            patientAppConfirNum.Text = "";
 
             List.Clear();
 
@@ -285,7 +287,7 @@ namespace DoctorPatient_Subsystem
                     "\n you can reach them at " + patPhoneNum;
 
                 //create message/notice
-                new Message(docId, "Phone Call", patId, message);
+                new Message("Phone Call", docId, patId, message);
             }
         }
 
@@ -326,7 +328,7 @@ namespace DoctorPatient_Subsystem
 
 
                 //make message/notice
-                new Message(docID, "Refill Request", userPatient.getId(), refillId);
+                new Message("Refill Request", docID, userPatient.getId(), refillId);
             }
         }
 
@@ -376,6 +378,7 @@ namespace DoctorPatient_Subsystem
                 Message selectedNote = (Message)List[patientNoticeList.SelectedIndex];
                 patientNoticeType.Text = selectedNote.getTypeOfNotice();
                 patientNoticeDescrip.Text = selectedNote.getMessage();
+
                 //if type is not acceptable/deniable disable/vis accept and deny btns
                 if (selectedNote.getTypeOfNotice() != "Record Request")
                 {
@@ -388,14 +391,21 @@ namespace DoctorPatient_Subsystem
 
         private void patientNoticeAccept_Click(object sender, EventArgs e)
         {
-            //checks what type of message it is
             //create message
+            String message = userPatient.getName() + " has granted you access to their medical record.";
+
+            Message selectedNote = (Message)List[patientNoticeList.SelectedIndex];
+
+            new Message("Record Response", selectedNote.getDoctorID(), userPatient.getId(), message, true);
         }
 
         private void patientNoticeDeny_Click(object sender, EventArgs e)
         {
-            //checks what type of message it is
             //create message
+            String message = userPatient.getName() + " has denied you access to their medical record.";
+
+            Message selectedNote = (Message)List[patientNoticeList.SelectedIndex];
+            new Message("Record Response", selectedNote.getDoctorID(), userPatient.getId(), message, false);
         }
 
         private void patientNoticeBack_Click(object sender, EventArgs e)
@@ -474,5 +484,7 @@ namespace DoctorPatient_Subsystem
             patientRecordBtn.Enabled = true;
             patientBack.Enabled = true;
         }
+
+
     }
 }

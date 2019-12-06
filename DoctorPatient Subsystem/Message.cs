@@ -38,7 +38,7 @@ namespace DoctorPatient_Subsystem
             this.appointment = app;
         }
 
-        public Message(int docID, string type, int patID, string msg)
+        public Message(string type, int docID, int patID, string msg)
         {
             this.typeOfNotice = type;
             this.doctorID = docID;
@@ -48,7 +48,7 @@ namespace DoctorPatient_Subsystem
             //insert new message
         }
 
-        public Message(int docID, string type, int patID, int reID)
+        public Message(string type, int docID, int patID, int reID)
         {
             this.typeOfNotice = type;
             this.doctorID = docID;
@@ -56,6 +56,11 @@ namespace DoctorPatient_Subsystem
             this.refillID = reID;
 
             //insert new message
+        }
+
+        public Message(string type, int docId, int patId,String msg, bool permision)
+        {
+            //inset new message
         }
 
         public int getNoticeID()
