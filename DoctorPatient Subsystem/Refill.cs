@@ -18,6 +18,17 @@ namespace DoctorPatient_Subsystem
         int noticeID;
         int doctorID;
 
+        public Refill()
+        {
+
+        }
+
+        public Refill(int id)
+        {
+            noticeID = id;
+            getRefillData(id);
+        }
+
         public int getRefillID()
         {
             return this.refillID;
@@ -53,26 +64,23 @@ namespace DoctorPatient_Subsystem
 
         }
 
-        public void retrieveRefillData()
-        {
-
-        }
-
         public ArrayList retrieveRefillList(int patientId)
         {
             ArrayList refillList = new ArrayList();
 
-            //prepare an SQL query to retrieve the patient 
+            ArrayList noticeIdList = new ArrayList();
             DataTable myTable = new DataTable();
             string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;";
             MySqlConnection conn = new MySqlConnection(connStr);
+
+            //prepare an SQL query to retrieve notice i from patient from patients
             try
             {
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
-                string sql = "JOIN statement?? for id of patient's refill -- retrieve refill info?" + patientId; //placeholder for the real table name
+                string sql = "SELECT notice_id FROM kodibrian_message WHERE patient_id = @patId AND typeofNotice Like 'Refill';"; //placeholder for the real table name
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                //cmd.Parameters.AddWithValue("@myDate", dateString);
+                cmd.Parameters.AddWithValue("@patId", patientId);
                 MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
                 myAdapter.Fill(myTable);
                 Console.WriteLine("Table is ready.");
@@ -85,16 +93,11 @@ namespace DoctorPatient_Subsystem
             //convert the retrieved data to events and save them to the list
             foreach (DataRow row in myTable.Rows)
             {
-                int reID = Int32.Parse(row["DoctorID"].ToString());
-                string timeP = row["timePeriod"].ToString();
-                int timesF = Int32.Parse(row["timesFilled"].ToString());
-                string med = row["medication"].ToString();
-                int noteID = Int32.Parse(row["noticeID"].ToString());
-                int docID = Int32.Parse(row["DoctorID"].ToString());
-
-                Refill loopRefill = new Refill(/*refillID, docID, noticeID, medication, timePeriod, timesFilled */);
-                refillList.Add(loopRefill);
+                int tempNotId = Int32.Parse(row["notice_id"].ToString());
+                refillList.Add(new Refill(tempNotId));
+                
             }
+
 
             if (refillList.Count == 0)
             {
@@ -105,7 +108,30 @@ namespace DoctorPatient_Subsystem
 
         public void updateRefill()
         {
+            DataTable myTable = new DataTable();
+            string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                Console.WriteLine("Connecting to MySQL...");
+                conn.Open();
+                string sql = "UPDATE kodibrian_refill SET notice_id = @noteId , timePeriod = @timeP , timesFilled = @timesF , medication = @med  WHERE appointment_id = @refillId";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@noteId", noticeID);
+                cmd.Parameters.AddWithValue("@timeP", timePeriod);
+                cmd.Parameters.AddWithValue("@timesF", timesFilled);
+                cmd.Parameters.AddWithValue("@med", medication);
+                cmd.Parameters.AddWithValue("@refillId", refillID);
 
+                //excute
+                cmd.ExecuteScalar();
+                Console.WriteLine("Done.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
         }
 
         public void getRefillData(int id)
@@ -118,9 +144,9 @@ namespace DoctorPatient_Subsystem
             {
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
-                string sql = "JOIN statement?? for id of patient's refill -- retrieve refill info?" + id; //placeholder for the real table name
+                string sql = "SELECT * FROM kodibrian_refill WHERE notice_id = @notId;";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                //cmd.Parameters.AddWithValue("@myDate", dateString);
+                cmd.Parameters.AddWithValue("@notId", noticeID);
                 MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
                 myAdapter.Fill(myTable);
                 Console.WriteLine("Table is ready.");
@@ -136,7 +162,7 @@ namespace DoctorPatient_Subsystem
                 timePeriod = row["timePeriod"].ToString();
                 timesFilled = Int32.Parse(row["timesFilled"].ToString());
                 medication = row["medication"].ToString();
-                noticeID = Int32.Parse(row["noticeID"].ToString());
+                refillID = Int32.Parse(row["refill_id"].ToString());
             }
         }
 
