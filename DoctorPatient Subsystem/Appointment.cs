@@ -23,14 +23,15 @@ namespace DoctorPatient_Subsystem
         public Appointment(int docId, int patId, string docName, string patName, string conDate,
             string conDescrip, string confirNum)
         {
-            //create appointment in table
+            doctorId=docId;
+            patientId=patId;
+            confirmationNum=confirNum;
+            patientName= patName;
+            doctorName=docName;
+            date=conDate;
+            description=conDescrip;
 
-            //create notice
-
-            //get noticeid
-
-            //update appointment in table
-
+            insertApp();
         }
 
         //gets
@@ -80,11 +81,17 @@ namespace DoctorPatient_Subsystem
         }
 
 
-        //retrieve data from database
+        //retrieve data from database (Dont Need?)
         public void retreiveAppointmentData(int id)
         {
-            //prepare an SQL query to retrieve
-            DataTable myTable = new DataTable();
+
+        }
+
+        private void insertApp()
+        {
+            //create appointment in table
+            // prepare an SQL query to retrieve
+             DataTable myTable = new DataTable();
             string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;";
             MySqlConnection conn = new MySqlConnection(connStr);
 
@@ -94,103 +101,66 @@ namespace DoctorPatient_Subsystem
             {
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
-                string sql = "SELECT * FROM ******Table****** WHERE appointmentId = " + id; //placeholder for the real table name
+                string sql = "INSERT INTO kodibrian_appointments (adate, conNum, description)VALUES (@date , @conNum , @des );";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                //cmd.Parameters.AddWithValue("@myDate", dateString);
-                MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
-                myAdapter.Fill(myTable);
-                Console.WriteLine("Table is ready.");
+                cmd.Parameters.AddWithValue("@date", date);
+                cmd.Parameters.AddWithValue("@conNum", confirmationNum);
+                cmd.Parameters.AddWithValue("@des", description);
+
+                //excute and get appID
+                appointmentId = Convert.ToInt32(cmd.ExecuteScalar());
+                Console.WriteLine("Done.");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
-            //convert the retrieved data to events and save them to the list
-            foreach (DataRow row in myTable.Rows)
+
+            //create notice
+            try
             {
-              
-                appointmentId = Int32.Parse(row["appointmentID"].ToString());
-                noticeId = Int32.Parse(row["noticeID"].ToString());
-                description = row["description"].ToString();
-                date= row["date"].ToString();
-                confirmationNum = row["confirmationNum"].ToString();
-               
+                Console.WriteLine("Connecting to MySQL...");
+                conn.Open();
+                string sql = "INSERT INTO kodibrian_message (typeofNotice, mdate, doctor_id, patient_id, appointment_id, message)VALUES (@type , @date , @docId, @patId, @appId, @mes );"; 
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@type", "Appointment");
+                cmd.Parameters.AddWithValue("@date", date);
+                cmd.Parameters.AddWithValue("@docId", doctorId);
+                cmd.Parameters.AddWithValue("@patId", patientId);
+                cmd.Parameters.AddWithValue("@appId", appointmentId);
+                cmd.Parameters.AddWithValue("@mes", patientName+" you have an appointment with "+doctorName+". \n Con#: "+confirmationNum+"\n Date: "+date);
+
+                //excute and get NoteID
+                noticeId = Convert.ToInt32(cmd.ExecuteScalar());
+                Console.WriteLine("Done.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
             }
 
-            //use notice id to retrieve patient id and doctor id from notice table
+
+            //update appointment in table
 
             try
             {
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
-                string sql = "SELECT doctorId, patientId FROM ******Table****** WHERE noticeId = " + noticeId; //placeholder for the real table name
+                string sql = "UPDATE kodibrian_appointments SET notice_id = @noteId WHERE appointment_id = @appId"; 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                //cmd.Parameters.AddWithValue("@myDate", dateString);
-                MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
-                myAdapter.Fill(myTable);
-                Console.WriteLine("Table is ready.");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-            //convert the retrieved data to events and save them to the list
-            foreach (DataRow row in myTable.Rows)
-            {
-                patientId = Int32.Parse(row["patientID"].ToString());
-                doctorId = Int32.Parse(row["doctorID"].ToString());
+                cmd.Parameters.AddWithValue("@noteId", noticeId);
+                cmd.Parameters.AddWithValue("@appId", appointmentId);
                 
-            }
-
-            //retrieve doctor name from doctor table
-            try
-            {
-                Console.WriteLine("Connecting to MySQL...");
-                conn.Open();
-                string sql = "SELECT name FROM ******Table****** WHERE doctorId = " + doctorId; //placeholder for the real table name
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                //cmd.Parameters.AddWithValue("@myDate", dateString);
-                MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
-                myAdapter.Fill(myTable);
-                Console.WriteLine("Table is ready.");
+                //excute
+                cmd.ExecuteScalar();
+                Console.WriteLine("Done.");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
-            //convert the retrieved data to events and save them to the list
-            foreach (DataRow row in myTable.Rows)
-            {
-                doctorName = row["name"].ToString();
 
-            }
-
-
-            //retrieve patient name from patient table
-
-            try
-            {
-                Console.WriteLine("Connecting to MySQL...");
-                conn.Open();
-                string sql = "SELECT name FROM ******Table****** WHERE patientId = " + patientId; //placeholder for the real table name
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                //cmd.Parameters.AddWithValue("@myDate", dateString);
-                MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
-                myAdapter.Fill(myTable);
-                Console.WriteLine("Table is ready.");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-            //convert the retrieved data to events and save them to the list
-            foreach (DataRow row in myTable.Rows)
-            {
-                patientName= row["name"].ToString();
-                
-            }
             conn.Close();
-
         }
 
     }

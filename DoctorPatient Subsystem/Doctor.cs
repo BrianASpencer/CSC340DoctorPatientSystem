@@ -46,7 +46,7 @@ namespace DoctorPatient_Subsystem
             {
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
-                string sql = "SELECT * FROM ******Doctor Table****** WHERE docID = " + id; //placeholder for the real table name
+                string sql = "SELECT * FROM kodibrian_doctor WHERE doctor_id = " + id; 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 //cmd.Parameters.AddWithValue("@myDate", dateString);
                 MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
@@ -61,10 +61,10 @@ namespace DoctorPatient_Subsystem
             //convert the retrieved data to events and save them to the list
             foreach (DataRow row in myTable.Rows)
             {
-                idNumber = Int32.Parse(row["docID"].ToString());
-                name = row["name"].ToString();
-                phoneNum = row["phone"].ToString();
-                string status = row["busyStatus"].ToString();
+                idNumber = Int32.Parse(row["doctor_id"].ToString());
+                name = row["dname"].ToString();
+                phoneNum = row["phoneNum"].ToString();
+                string status = row["isBusy"].ToString();
                 busyStatus = status.Equals("True");
             }
         }
