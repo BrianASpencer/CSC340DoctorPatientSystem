@@ -63,7 +63,7 @@ namespace DoctorPatient_Subsystem
                 {
                     Console.WriteLine("Connecting to MySQL...");
                     conn.Open();
-                    string sql = "SELECT * FROM ******Doctor Table****** WHERE doctorId = " + id; //placeholder for the real table name
+                    string sql = "SELECT * FROM kodibrian_doctor WHERE doctor_id = " + id; //placeholder for the real table name
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
                     //cmd.Parameters.AddWithValue("@myDate", dateString);
                     MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
@@ -81,10 +81,18 @@ namespace DoctorPatient_Subsystem
                 foreach (DataRow row in myTable.Rows)
                 {
                     sqlPassword = row["password"].ToString();
-                    
+
+                    int docId = Int32.Parse(row["doctor_id"].ToString());
+                    string nam = row["dname"].ToString();
+                    string phoneN = row["phoneNum"].ToString();
+                    string status = row["isBusy"].ToString();
+                    bool busy = status.Equals("True");
+
+                    userDoctor = new Doctor( docId, nam, phoneN, busy);
+
                 }
 
-                if (myTable==null || password != sqlPassword)
+                if (myTable==null || password != sqlPassword || password == "")
                 {
                     loginInvalid.Visible=true;
                 }
@@ -113,7 +121,7 @@ namespace DoctorPatient_Subsystem
                 {
                     Console.WriteLine("Connecting to MySQL...");
                     conn.Open();
-                    string sql = "SELECT * FROM ******Patient Table****** WHERE patientId = " + id; //placeholder for the real table name
+                    string sql = "SELECT * FROM kodibrian_patients WHERE patient_id = " + id; //placeholder for the real table name
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
                     //cmd.Parameters.AddWithValue("@myDate", dateString);
                     MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
@@ -132,9 +140,19 @@ namespace DoctorPatient_Subsystem
                 {
                     sqlPassword = row["password"].ToString();
 
+                    int patId = Int32.Parse(row["patient_id"].ToString());
+                    string patN = row["pname"].ToString();
+                    string phoneN = row["phoneNum"].ToString();
+                    string dOB = row["dateOfBirth"].ToString();
+                    string drugAl = row["drugAllergies"].ToString();
+                    string add = row["address"].ToString();
+                    string medRec = row["medRecord"].ToString();
+
+                    userPatient =new Patient(patId, patN, phoneN, dOB, drugAl, add, medRec);
+
                 }
 
-                if (myTable == null || password != sqlPassword)
+                if (myTable == null || password != sqlPassword || password=="")
                 {
                     loginInvalid.Visible=true;
                 }
@@ -207,6 +225,12 @@ namespace DoctorPatient_Subsystem
             //make list of doctors in data base
             List = new Doctor().retrieveDoctorList();
 
+            for (int i=0;i<List.Count;i++)
+            {
+                Doctor tempDoc = (Doctor)List[i];
+                patientAppDocListBox.Items.Add(tempDoc.getName());
+            }
+
             if (List != null)
             {
                 selectedDoc = (Doctor)List[0];
@@ -230,8 +254,9 @@ namespace DoctorPatient_Subsystem
         {
             if (List != null)
             {
+
                 selectedDoc = (Doctor)List[patientAppDocListBox.SelectedIndex];
-                patientAppDoctorLable.Text += "" + selectedDoc.getName();
+                patientAppDoctorLable.Text = selectedDoc.getName();
             }
 
         }

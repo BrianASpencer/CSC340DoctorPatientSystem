@@ -31,6 +31,7 @@ namespace DoctorPatient_Subsystem
         private void InitializeComponent()
         {
             this.loginPanel = new System.Windows.Forms.Panel();
+            this.label20 = new System.Windows.Forms.Label();
             this.loginInvalid = new System.Windows.Forms.Label();
             this.loginLoginBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -135,6 +136,7 @@ namespace DoctorPatient_Subsystem
             // 
             // loginPanel
             // 
+            this.loginPanel.Controls.Add(this.label20);
             this.loginPanel.Controls.Add(this.loginInvalid);
             this.loginPanel.Controls.Add(this.loginLoginBtn);
             this.loginPanel.Controls.Add(this.label2);
@@ -143,11 +145,20 @@ namespace DoctorPatient_Subsystem
             this.loginPanel.Controls.Add(this.loginIDtB);
             this.loginPanel.Controls.Add(this.radioButtonPatient);
             this.loginPanel.Controls.Add(this.radioButtonDoctor);
-            this.loginPanel.Location = new System.Drawing.Point(123, 336);
+            this.loginPanel.Location = new System.Drawing.Point(667, 221);
             this.loginPanel.Name = "loginPanel";
             this.loginPanel.Size = new System.Drawing.Size(767, 426);
             this.loginPanel.TabIndex = 12;
             this.loginPanel.TabStop = true;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(25, 28);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(192, 13);
+            this.label20.TabIndex = 8;
+            this.label20.Text = "Doctor/Patient ID:1  password: KodiD4";
             // 
             // loginInvalid
             // 
@@ -752,9 +763,7 @@ namespace DoctorPatient_Subsystem
             // 
             // patientPanel
             // 
-            this.patientPanel.Controls.Add(this.mainDoctorPanel);
             this.patientPanel.Controls.Add(this.patientNoticePanel);
-            this.patientPanel.Controls.Add(this.loginPanel);
             this.patientPanel.Controls.Add(this.patientRecordPanel);
             this.patientPanel.Controls.Add(this.patientAppPanel);
             this.patientPanel.Controls.Add(this.patientRefillPanel);
@@ -765,7 +774,7 @@ namespace DoctorPatient_Subsystem
             this.patientPanel.Controls.Add(this.patientPhoneBtn);
             this.patientPanel.Controls.Add(this.patientRecordBtn);
             this.patientPanel.Controls.Add(this.patientRequestAppBnt);
-            this.patientPanel.Location = new System.Drawing.Point(5, 12);
+            this.patientPanel.Location = new System.Drawing.Point(20, 348);
             this.patientPanel.Name = "patientPanel";
             this.patientPanel.Size = new System.Drawing.Size(785, 397);
             this.patientPanel.TabIndex = 13;
@@ -780,10 +789,11 @@ namespace DoctorPatient_Subsystem
             this.mainDoctorPanel.Controls.Add(this.doctorNoticesListBox);
             this.mainDoctorPanel.Controls.Add(this.viewMedicalRecordsButton);
             this.mainDoctorPanel.Controls.Add(this.viewNoticesButton);
-            this.mainDoctorPanel.Location = new System.Drawing.Point(0, 0);
+            this.mainDoctorPanel.Location = new System.Drawing.Point(245, 286);
             this.mainDoctorPanel.Name = "mainDoctorPanel";
             this.mainDoctorPanel.Size = new System.Drawing.Size(823, 389);
             this.mainDoctorPanel.TabIndex = 16;
+            this.mainDoctorPanel.Visible = false;
             this.mainDoctorPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.mainDoctorPanel_Paint);
             // 
             // requestPrescPanel
@@ -1061,7 +1071,9 @@ namespace DoctorPatient_Subsystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1364, 838);
+            this.ClientSize = new System.Drawing.Size(800, 413);
+            this.Controls.Add(this.mainDoctorPanel);
+            this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.patientPanel);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.listBox1);
@@ -1190,6 +1202,7 @@ namespace DoctorPatient_Subsystem
         private System.Windows.Forms.Button rejectReqButton;
         private System.Windows.Forms.Button grantReqButton;
         private System.Windows.Forms.ListBox prescRequestsListBox;
+        private System.Windows.Forms.Label label20;
     }
 }
 

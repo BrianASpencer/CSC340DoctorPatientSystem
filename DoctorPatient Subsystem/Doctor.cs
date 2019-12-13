@@ -97,6 +97,7 @@ namespace DoctorPatient_Subsystem
                 conn.Open();
                 string sql = "SELECT * FROM kodibrian_doctor ; "; //placeholder for the real table name
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+                Console.WriteLine("\n\n\n" + cmd.CommandText + "\n\n\n");
                 MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
                 myAdapter.Fill(myTable);
                 Console.WriteLine("Table is ready.");

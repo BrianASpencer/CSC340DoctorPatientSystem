@@ -162,6 +162,7 @@ namespace DoctorPatient_Subsystem
                 timesFilled = Int32.Parse(row["timesFilled"].ToString());
                 medication = row["medication"].ToString();
                 refillID = Int32.Parse(row["refill_id"].ToString());
+                doctorID = Int32.Parse(row["doctor_id"].ToString());
             }
         }
 
