@@ -93,6 +93,19 @@ namespace DoctorPatient_Subsystem
             this.patientNoticeList = new System.Windows.Forms.ListBox();
             this.patientPanel = new System.Windows.Forms.Panel();
             this.mainDoctorPanel = new System.Windows.Forms.Panel();
+            this.createDoctorAppointment = new System.Windows.Forms.Panel();
+            this.createAppointmentButton = new System.Windows.Forms.Button();
+            this.appDetailsRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.appTimeTextBox = new System.Windows.Forms.TextBox();
+            this.appLNameTextBox = new System.Windows.Forms.TextBox();
+            this.appDateTextBox = new System.Windows.Forms.TextBox();
+            this.appFNameTextBox = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.doctorLogoutButton = new System.Windows.Forms.Button();
             this.closeDoctorNoticeRecords = new System.Windows.Forms.Button();
             this.selectNoticeButton = new System.Windows.Forms.Button();
             this.doctorNoticesListBox = new System.Windows.Forms.ListBox();
@@ -112,6 +125,7 @@ namespace DoctorPatient_Subsystem
             this.patientNoticePanel.SuspendLayout();
             this.patientPanel.SuspendLayout();
             this.mainDoctorPanel.SuspendLayout();
+            this.createDoctorAppointment.SuspendLayout();
             this.SuspendLayout();
             // 
             // loginPanel
@@ -753,20 +767,148 @@ namespace DoctorPatient_Subsystem
             // 
             // mainDoctorPanel
             // 
+            this.mainDoctorPanel.Controls.Add(this.createDoctorAppointment);
+            this.mainDoctorPanel.Controls.Add(this.doctorLogoutButton);
             this.mainDoctorPanel.Controls.Add(this.closeDoctorNoticeRecords);
             this.mainDoctorPanel.Controls.Add(this.selectNoticeButton);
             this.mainDoctorPanel.Controls.Add(this.doctorNoticesListBox);
             this.mainDoctorPanel.Controls.Add(this.viewMedicalRecordsButton);
             this.mainDoctorPanel.Controls.Add(this.viewNoticesButton);
-            this.mainDoctorPanel.Location = new System.Drawing.Point(696, 163);
+            this.mainDoctorPanel.Location = new System.Drawing.Point(392, 261);
             this.mainDoctorPanel.Name = "mainDoctorPanel";
-            this.mainDoctorPanel.Size = new System.Drawing.Size(776, 389);
+            this.mainDoctorPanel.Size = new System.Drawing.Size(823, 389);
             this.mainDoctorPanel.TabIndex = 16;
             this.mainDoctorPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.mainDoctorPanel_Paint);
             // 
+            // createDoctorAppointment
+            // 
+            this.createDoctorAppointment.Controls.Add(this.createAppointmentButton);
+            this.createDoctorAppointment.Controls.Add(this.appDetailsRichTextBox);
+            this.createDoctorAppointment.Controls.Add(this.appTimeTextBox);
+            this.createDoctorAppointment.Controls.Add(this.appLNameTextBox);
+            this.createDoctorAppointment.Controls.Add(this.appDateTextBox);
+            this.createDoctorAppointment.Controls.Add(this.appFNameTextBox);
+            this.createDoctorAppointment.Controls.Add(this.label19);
+            this.createDoctorAppointment.Controls.Add(this.label14);
+            this.createDoctorAppointment.Controls.Add(this.label13);
+            this.createDoctorAppointment.Controls.Add(this.label12);
+            this.createDoctorAppointment.Controls.Add(this.label11);
+            this.createDoctorAppointment.Location = new System.Drawing.Point(250, 347);
+            this.createDoctorAppointment.Name = "createDoctorAppointment";
+            this.createDoctorAppointment.Size = new System.Drawing.Size(410, 303);
+            this.createDoctorAppointment.TabIndex = 6;
+            this.createDoctorAppointment.Visible = false;
+            this.createDoctorAppointment.Paint += new System.Windows.Forms.PaintEventHandler(this.createDoctorAppointment_Paint);
+            // 
+            // createAppointmentButton
+            // 
+            this.createAppointmentButton.Location = new System.Drawing.Point(192, 281);
+            this.createAppointmentButton.Name = "createAppointmentButton";
+            this.createAppointmentButton.Size = new System.Drawing.Size(116, 23);
+            this.createAppointmentButton.TabIndex = 10;
+            this.createAppointmentButton.Text = "Create Appointment";
+            this.createAppointmentButton.UseVisualStyleBackColor = true;
+            this.createAppointmentButton.Click += new System.EventHandler(this.createAppointmentButton_Click);
+            // 
+            // appDetailsRichTextBox
+            // 
+            this.appDetailsRichTextBox.Location = new System.Drawing.Point(92, 142);
+            this.appDetailsRichTextBox.Name = "appDetailsRichTextBox";
+            this.appDetailsRichTextBox.Size = new System.Drawing.Size(312, 133);
+            this.appDetailsRichTextBox.TabIndex = 9;
+            this.appDetailsRichTextBox.Text = "";
+            this.appDetailsRichTextBox.TextChanged += new System.EventHandler(this.appDetailsRichTextBox_TextChanged);
+            // 
+            // appTimeTextBox
+            // 
+            this.appTimeTextBox.Location = new System.Drawing.Point(301, 75);
+            this.appTimeTextBox.Name = "appTimeTextBox";
+            this.appTimeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.appTimeTextBox.TabIndex = 8;
+            this.appTimeTextBox.TextChanged += new System.EventHandler(this.appTimeTextBox_TextChanged);
+            // 
+            // appLNameTextBox
+            // 
+            this.appLNameTextBox.Location = new System.Drawing.Point(301, 31);
+            this.appLNameTextBox.Name = "appLNameTextBox";
+            this.appLNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.appLNameTextBox.TabIndex = 7;
+            this.appLNameTextBox.TextChanged += new System.EventHandler(this.appLNameTextBox_TextChanged);
+            // 
+            // appDateTextBox
+            // 
+            this.appDateTextBox.Location = new System.Drawing.Point(92, 72);
+            this.appDateTextBox.Name = "appDateTextBox";
+            this.appDateTextBox.Size = new System.Drawing.Size(100, 20);
+            this.appDateTextBox.TabIndex = 6;
+            this.appDateTextBox.TextChanged += new System.EventHandler(this.appDateTextBox_TextChanged);
+            // 
+            // appFNameTextBox
+            // 
+            this.appFNameTextBox.Location = new System.Drawing.Point(92, 29);
+            this.appFNameTextBox.Name = "appFNameTextBox";
+            this.appFNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.appFNameTextBox.TabIndex = 5;
+            this.appFNameTextBox.TextChanged += new System.EventHandler(this.appFNameTextBox_TextChanged);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(261, 79);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(33, 13);
+            this.label19.TabIndex = 4;
+            this.label19.Text = "Time:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(234, 34);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(61, 13);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "Last Name:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(43, 145);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(42, 13);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "Details:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(52, 74);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(33, 13);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Date:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(26, 32);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(60, 13);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "First Name:";
+            // 
+            // doctorLogoutButton
+            // 
+            this.doctorLogoutButton.Location = new System.Drawing.Point(28, 315);
+            this.doctorLogoutButton.Name = "doctorLogoutButton";
+            this.doctorLogoutButton.Size = new System.Drawing.Size(75, 23);
+            this.doctorLogoutButton.TabIndex = 5;
+            this.doctorLogoutButton.Text = "Logout";
+            this.doctorLogoutButton.UseVisualStyleBackColor = true;
+            this.doctorLogoutButton.Click += new System.EventHandler(this.doctorLogoutButton_Click);
+            // 
             // closeDoctorNoticeRecords
             // 
-            this.closeDoctorNoticeRecords.Location = new System.Drawing.Point(665, 329);
+            this.closeDoctorNoticeRecords.Location = new System.Drawing.Point(729, 329);
             this.closeDoctorNoticeRecords.Name = "closeDoctorNoticeRecords";
             this.closeDoctorNoticeRecords.Size = new System.Drawing.Size(75, 23);
             this.closeDoctorNoticeRecords.TabIndex = 4;
@@ -791,6 +933,7 @@ namespace DoctorPatient_Subsystem
             this.doctorNoticesListBox.Name = "doctorNoticesListBox";
             this.doctorNoticesListBox.Size = new System.Drawing.Size(348, 238);
             this.doctorNoticesListBox.TabIndex = 2;
+            this.doctorNoticesListBox.SelectedIndexChanged += new System.EventHandler(this.doctorNoticesListBox_SelectedIndexChanged);
             // 
             // viewMedicalRecordsButton
             // 
@@ -800,6 +943,7 @@ namespace DoctorPatient_Subsystem
             this.viewMedicalRecordsButton.TabIndex = 1;
             this.viewMedicalRecordsButton.Text = "View Medical Records";
             this.viewMedicalRecordsButton.UseVisualStyleBackColor = true;
+            this.viewMedicalRecordsButton.Click += new System.EventHandler(this.viewMedicalRecordsButton_Click);
             // 
             // viewNoticesButton
             // 
@@ -809,6 +953,7 @@ namespace DoctorPatient_Subsystem
             this.viewNoticesButton.TabIndex = 0;
             this.viewNoticesButton.Text = "View Notices";
             this.viewNoticesButton.UseVisualStyleBackColor = true;
+            this.viewNoticesButton.Click += new System.EventHandler(this.viewNoticesButton_Click);
             // 
             // button4
             // 
@@ -897,6 +1042,8 @@ namespace DoctorPatient_Subsystem
             this.patientNoticePanel.PerformLayout();
             this.patientPanel.ResumeLayout(false);
             this.mainDoctorPanel.ResumeLayout(false);
+            this.createDoctorAppointment.ResumeLayout(false);
+            this.createDoctorAppointment.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -982,6 +1129,19 @@ namespace DoctorPatient_Subsystem
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button closeDoctorNoticeRecords;
+        private System.Windows.Forms.Button doctorLogoutButton;
+        private System.Windows.Forms.Panel createDoctorAppointment;
+        private System.Windows.Forms.Button createAppointmentButton;
+        private System.Windows.Forms.RichTextBox appDetailsRichTextBox;
+        private System.Windows.Forms.TextBox appTimeTextBox;
+        private System.Windows.Forms.TextBox appLNameTextBox;
+        private System.Windows.Forms.TextBox appDateTextBox;
+        private System.Windows.Forms.TextBox appFNameTextBox;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
     }
 }
 

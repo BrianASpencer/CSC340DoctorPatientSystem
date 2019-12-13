@@ -23,8 +23,8 @@ namespace DoctorPatient_Subsystem
         {
             InitializeComponent();
 
-            //loginPanel.Visible = true;
-            //loginPanel.Location = new Point(0,0);
+            loginPanel.Visible = true;
+            loginPanel.Location = new Point(0,0);
             System.Object[] ItemObject = new System.Object[5];
             for (int i = 0; i <= 4; i++)
             {
@@ -524,12 +524,18 @@ namespace DoctorPatient_Subsystem
 
         private void selectNoticeButton_Click(object sender, EventArgs e)
         {
-            /*
-            Message selectedMsg = (Message)List[patientNoticeList.SelectedIndex];
-            if (selectedMsg.getTypeOfNotice().Equals("appointment"))
+
+            //Message selectedMsg = (Message)List[patientNoticeList.SelectedIndex];
+            //selectedMsg.getTypeOfNotice().Equals("appointment")
+            if (true)
             {
+                mainDoctorPanel.Visible = true;
                 //make create appointment stuff pop up
-            } 
+                createDoctorAppointment.Visible = true;
+                //{X=331,Y=52}
+                createDoctorAppointment.Location = new Point(315, 52);
+            }
+            /*
             else if (selectedMsg.getTypeOfNotice().Equals("refill"))
             {
                 //make grant/reject buttons appear
@@ -543,6 +549,7 @@ namespace DoctorPatient_Subsystem
                 //then reject makes a reason box appear
             }
             */
+            
         }
 
         private void mainDoctorPanel_Paint(object sender, PaintEventArgs e)
@@ -558,11 +565,79 @@ namespace DoctorPatient_Subsystem
         private void closeDoctorNoticeRecords_Click(object sender, EventArgs e)
         {
             //make everysingle component invisible?
+            createDoctorAppointment.Visible = false;
+        }
+
+        private void doctorLogoutButton_Click(object sender, EventArgs e)
+        {
             mainDoctorPanel.Visible = false;
             mainDoctorPanel.Location = new Point(200, 200);
 
             loginPanel.Visible = true;
             loginPanel.Location = new Point(0, 0);
+        }
+
+        private void doctorNoticesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void viewMedicalRecordsButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void viewNoticesButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void createDoctorAppointment_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void createAppointmentButton_Click(object sender, EventArgs e)
+        {
+            //send information to create an appointment entry in database
+            string name = appFNameTextBox.Text + appLNameTextBox.Text;
+            string date = appDateTextBox.Text;
+            string time = appTimeTextBox.Text;
+            string details = appDetailsRichTextBox.Text;
+
+            //INSERT statement here
+
+            //resetting all field values for feedback
+            appFNameTextBox.Text = "";
+            appLNameTextBox.Text = "";
+            appDateTextBox.Text = "";
+            appTimeTextBox.Text = "";
+            appDetailsRichTextBox.Text = "";
+        }
+
+        private void appDetailsRichTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void appDateTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void appTimeTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void appFNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void appLNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
