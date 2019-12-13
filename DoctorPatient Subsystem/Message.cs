@@ -46,6 +46,7 @@ namespace DoctorPatient_Subsystem
             this.message = msg;
 
             //insert new message
+            createMessage();
         }
 
         public Message(string type, int docID, int patID, int reID)
@@ -56,11 +57,13 @@ namespace DoctorPatient_Subsystem
             this.refillID = reID;
 
             //insert new message
+            createMessage();
         }
 
         public Message(string type, int docId, int patId,String msg, bool permision)
         {
             //inset new message
+            createMessage();
         }
 
         public int getNoticeID()
