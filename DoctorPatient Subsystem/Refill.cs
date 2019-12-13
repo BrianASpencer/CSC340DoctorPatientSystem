@@ -68,7 +68,6 @@ namespace DoctorPatient_Subsystem
         {
             ArrayList refillList = new ArrayList();
 
-            ArrayList noticeIdList = new ArrayList();
             DataTable myTable = new DataTable();
             string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;";
             MySqlConnection conn = new MySqlConnection(connStr);

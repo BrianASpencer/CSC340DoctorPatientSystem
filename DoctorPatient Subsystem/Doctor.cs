@@ -14,7 +14,20 @@ namespace DoctorPatient_Subsystem
         int idNumber;
         string name;
         string phoneNum;
-        Boolean busyStatus;
+        bool busyStatus;
+
+        public Doctor()
+        {
+
+        }
+
+        public Doctor(int id, string nam, string phoneN, bool busy)
+        {
+            idNumber = id;
+            name = nam;
+            phoneNum = phoneN;
+            busyStatus = busy;
+        }
 
         public int getIDNumber()
         {
@@ -31,7 +44,7 @@ namespace DoctorPatient_Subsystem
             return this.phoneNum;
         }
 
-        public Boolean getBusyStatus()
+        public bool getBusyStatus()
         {
             return this.busyStatus;
         }
@@ -71,12 +84,92 @@ namespace DoctorPatient_Subsystem
 
         public ArrayList retrieveDoctorList()
         {
-            return null;
+            ArrayList doctorList = new ArrayList();
+
+            DataTable myTable = new DataTable();
+            string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;";
+            MySqlConnection conn = new MySqlConnection(connStr);
+
+            //prepare an SQL query to retrieve notice i from patient from patients
+            try
+            {
+                Console.WriteLine("Connecting to MySQL...");
+                conn.Open();
+                string sql = "SELECT * FROM kodibrian_doctor ; "; //placeholder for the real table name
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
+                myAdapter.Fill(myTable);
+                Console.WriteLine("Table is ready.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
+            //convert the retrieved data to events and save them to the list
+            foreach (DataRow row in myTable.Rows)
+            {
+                int docId = Int32.Parse(row["patientID"].ToString());
+                string docN = row["name"].ToString();
+                string phoneN = row["phoneNum"].ToString();
+                string status = row["isBusy"].ToString();
+                bool busyStatusT = status.Equals("True");
+
+                doctorList.Add(new Doctor(docId, docN, phoneN, busyStatusT));
+
+            }
+
+
+            if (doctorList.Count == 0)
+            {
+                return null;
+            }
+            return doctorList;
         }
 
         public ArrayList retrieveNonBusyDoctorList()
         {
-            return null;
+            ArrayList doctorList = new ArrayList();
+
+            DataTable myTable = new DataTable();
+            string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;";
+            MySqlConnection conn = new MySqlConnection(connStr);
+
+            //prepare an SQL query to retrieve notice i from patient from patients
+            try
+            {
+                Console.WriteLine("Connecting to MySQL...");
+                conn.Open();
+                string sql = "SELECT * FROM kodibrian_doctor WHERE isBusy = 0 ; "; //placeholder for the real table name
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
+                myAdapter.Fill(myTable);
+                Console.WriteLine("Table is ready.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
+            //convert the retrieved data to events and save them to the list
+            foreach (DataRow row in myTable.Rows)
+            {
+                int docId = Int32.Parse(row["patientID"].ToString());
+                string docN = row["name"].ToString();
+                string phoneN = row["phoneNum"].ToString();
+                string status = row["isBusy"].ToString();
+                bool busyStatusT = status.Equals("True");
+
+                doctorList.Add(new Doctor(docId, docN, phoneN, busyStatusT));
+
+            }
+
+
+            if (doctorList.Count == 0)
+            {
+                return null;
+            }
+            return doctorList;
         }
     }
 }
