@@ -93,6 +93,19 @@ namespace DoctorPatient_Subsystem
             this.patientNoticeList = new System.Windows.Forms.ListBox();
             this.patientPanel = new System.Windows.Forms.Panel();
             this.mainDoctorPanel = new System.Windows.Forms.Panel();
+            this.createDoctorAppointment = new System.Windows.Forms.Panel();
+            this.createAppointmentButton = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.doctorLogoutButton = new System.Windows.Forms.Button();
             this.closeDoctorNoticeRecords = new System.Windows.Forms.Button();
             this.selectNoticeButton = new System.Windows.Forms.Button();
             this.doctorNoticesListBox = new System.Windows.Forms.ListBox();
@@ -104,7 +117,6 @@ namespace DoctorPatient_Subsystem
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.doctorLogoutButton = new System.Windows.Forms.Button();
             this.loginPanel.SuspendLayout();
             this.patientPhonePanel.SuspendLayout();
             this.patientRefillPanel.SuspendLayout();
@@ -113,6 +125,7 @@ namespace DoctorPatient_Subsystem
             this.patientNoticePanel.SuspendLayout();
             this.patientPanel.SuspendLayout();
             this.mainDoctorPanel.SuspendLayout();
+            this.createDoctorAppointment.SuspendLayout();
             this.SuspendLayout();
             // 
             // loginPanel
@@ -734,7 +747,6 @@ namespace DoctorPatient_Subsystem
             // 
             // patientPanel
             // 
-            this.patientPanel.Controls.Add(this.mainDoctorPanel);
             this.patientPanel.Controls.Add(this.patientNoticePanel);
             this.patientPanel.Controls.Add(this.loginPanel);
             this.patientPanel.Controls.Add(this.patientRecordPanel);
@@ -754,21 +766,142 @@ namespace DoctorPatient_Subsystem
             // 
             // mainDoctorPanel
             // 
+            this.mainDoctorPanel.Controls.Add(this.createDoctorAppointment);
             this.mainDoctorPanel.Controls.Add(this.doctorLogoutButton);
             this.mainDoctorPanel.Controls.Add(this.closeDoctorNoticeRecords);
             this.mainDoctorPanel.Controls.Add(this.selectNoticeButton);
             this.mainDoctorPanel.Controls.Add(this.doctorNoticesListBox);
             this.mainDoctorPanel.Controls.Add(this.viewMedicalRecordsButton);
             this.mainDoctorPanel.Controls.Add(this.viewNoticesButton);
-            this.mainDoctorPanel.Location = new System.Drawing.Point(0, 1);
+            this.mainDoctorPanel.Location = new System.Drawing.Point(12, 13);
             this.mainDoctorPanel.Name = "mainDoctorPanel";
-            this.mainDoctorPanel.Size = new System.Drawing.Size(776, 389);
+            this.mainDoctorPanel.Size = new System.Drawing.Size(823, 389);
             this.mainDoctorPanel.TabIndex = 16;
             this.mainDoctorPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.mainDoctorPanel_Paint);
             // 
+            // createDoctorAppointment
+            // 
+            this.createDoctorAppointment.Controls.Add(this.createAppointmentButton);
+            this.createDoctorAppointment.Controls.Add(this.richTextBox1);
+            this.createDoctorAppointment.Controls.Add(this.textBox5);
+            this.createDoctorAppointment.Controls.Add(this.textBox4);
+            this.createDoctorAppointment.Controls.Add(this.textBox3);
+            this.createDoctorAppointment.Controls.Add(this.textBox1);
+            this.createDoctorAppointment.Controls.Add(this.label19);
+            this.createDoctorAppointment.Controls.Add(this.label14);
+            this.createDoctorAppointment.Controls.Add(this.label13);
+            this.createDoctorAppointment.Controls.Add(this.label12);
+            this.createDoctorAppointment.Controls.Add(this.label11);
+            this.createDoctorAppointment.Location = new System.Drawing.Point(473, 373);
+            this.createDoctorAppointment.Name = "createDoctorAppointment";
+            this.createDoctorAppointment.Size = new System.Drawing.Size(410, 303);
+            this.createDoctorAppointment.TabIndex = 6;
+            this.createDoctorAppointment.Visible = false;
+            this.createDoctorAppointment.Paint += new System.Windows.Forms.PaintEventHandler(this.createDoctorAppointment_Paint);
+            // 
+            // createAppointmentButton
+            // 
+            this.createAppointmentButton.Location = new System.Drawing.Point(192, 281);
+            this.createAppointmentButton.Name = "createAppointmentButton";
+            this.createAppointmentButton.Size = new System.Drawing.Size(116, 23);
+            this.createAppointmentButton.TabIndex = 10;
+            this.createAppointmentButton.Text = "Create Appointment";
+            this.createAppointmentButton.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(92, 142);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(312, 133);
+            this.richTextBox1.TabIndex = 9;
+            this.richTextBox1.Text = "";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(301, 75);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.TabIndex = 8;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(301, 31);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.TabIndex = 7;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(92, 72);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 6;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(92, 29);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 5;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(261, 79);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(33, 13);
+            this.label19.TabIndex = 4;
+            this.label19.Text = "Time:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(234, 34);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(61, 13);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "Last Name:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(43, 145);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(42, 13);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "Details:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(52, 74);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(33, 13);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Date:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(26, 32);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(60, 13);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "First Name:";
+            // 
+            // doctorLogoutButton
+            // 
+            this.doctorLogoutButton.Location = new System.Drawing.Point(28, 315);
+            this.doctorLogoutButton.Name = "doctorLogoutButton";
+            this.doctorLogoutButton.Size = new System.Drawing.Size(75, 23);
+            this.doctorLogoutButton.TabIndex = 5;
+            this.doctorLogoutButton.Text = "Logout";
+            this.doctorLogoutButton.UseVisualStyleBackColor = true;
+            this.doctorLogoutButton.Click += new System.EventHandler(this.doctorLogoutButton_Click);
+            // 
             // closeDoctorNoticeRecords
             // 
-            this.closeDoctorNoticeRecords.Location = new System.Drawing.Point(665, 329);
+            this.closeDoctorNoticeRecords.Location = new System.Drawing.Point(729, 329);
             this.closeDoctorNoticeRecords.Name = "closeDoctorNoticeRecords";
             this.closeDoctorNoticeRecords.Size = new System.Drawing.Size(75, 23);
             this.closeDoctorNoticeRecords.TabIndex = 4;
@@ -793,6 +926,7 @@ namespace DoctorPatient_Subsystem
             this.doctorNoticesListBox.Name = "doctorNoticesListBox";
             this.doctorNoticesListBox.Size = new System.Drawing.Size(348, 238);
             this.doctorNoticesListBox.TabIndex = 2;
+            this.doctorNoticesListBox.SelectedIndexChanged += new System.EventHandler(this.doctorNoticesListBox_SelectedIndexChanged);
             // 
             // viewMedicalRecordsButton
             // 
@@ -802,6 +936,7 @@ namespace DoctorPatient_Subsystem
             this.viewMedicalRecordsButton.TabIndex = 1;
             this.viewMedicalRecordsButton.Text = "View Medical Records";
             this.viewMedicalRecordsButton.UseVisualStyleBackColor = true;
+            this.viewMedicalRecordsButton.Click += new System.EventHandler(this.viewMedicalRecordsButton_Click);
             // 
             // viewNoticesButton
             // 
@@ -811,6 +946,7 @@ namespace DoctorPatient_Subsystem
             this.viewNoticesButton.TabIndex = 0;
             this.viewNoticesButton.Text = "View Notices";
             this.viewNoticesButton.UseVisualStyleBackColor = true;
+            this.viewNoticesButton.Click += new System.EventHandler(this.viewNoticesButton_Click);
             // 
             // button4
             // 
@@ -871,21 +1007,12 @@ namespace DoctorPatient_Subsystem
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Visible = false;
             // 
-            // doctorLogoutButton
-            // 
-            this.doctorLogoutButton.Location = new System.Drawing.Point(28, 315);
-            this.doctorLogoutButton.Name = "doctorLogoutButton";
-            this.doctorLogoutButton.Size = new System.Drawing.Size(75, 23);
-            this.doctorLogoutButton.TabIndex = 5;
-            this.doctorLogoutButton.Text = "Logout";
-            this.doctorLogoutButton.UseVisualStyleBackColor = true;
-            this.doctorLogoutButton.Click += new System.EventHandler(this.doctorLogoutButton_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1364, 838);
+            this.Controls.Add(this.mainDoctorPanel);
             this.Controls.Add(this.patientPanel);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.listBox1);
@@ -909,6 +1036,8 @@ namespace DoctorPatient_Subsystem
             this.patientNoticePanel.PerformLayout();
             this.patientPanel.ResumeLayout(false);
             this.mainDoctorPanel.ResumeLayout(false);
+            this.createDoctorAppointment.ResumeLayout(false);
+            this.createDoctorAppointment.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -995,6 +1124,18 @@ namespace DoctorPatient_Subsystem
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button closeDoctorNoticeRecords;
         private System.Windows.Forms.Button doctorLogoutButton;
+        private System.Windows.Forms.Panel createDoctorAppointment;
+        private System.Windows.Forms.Button createAppointmentButton;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
     }
 }
 
