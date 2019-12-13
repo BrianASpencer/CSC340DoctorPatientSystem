@@ -109,8 +109,8 @@ namespace DoctorPatient_Subsystem
             //convert the retrieved data to events and save them to the list
             foreach (DataRow row in myTable.Rows)
             {
-                int docId = Int32.Parse(row["patientID"].ToString());
-                string docN = row["name"].ToString();
+                int docId = Int32.Parse(row["doctor_id"].ToString());
+                string docN = row["dname"].ToString();
                 string phoneN = row["phoneNum"].ToString();
                 string status = row["isBusy"].ToString();
                 bool busyStatusT = status.Equals("True");
@@ -154,8 +154,8 @@ namespace DoctorPatient_Subsystem
             //convert the retrieved data to events and save them to the list
             foreach (DataRow row in myTable.Rows)
             {
-                int docId = Int32.Parse(row["patientID"].ToString());
-                string docN = row["name"].ToString();
+                int docId = Int32.Parse(row["doctor_id"].ToString());
+                string docN = row["dname"].ToString();
                 string phoneN = row["phoneNum"].ToString();
                 string status = row["isBusy"].ToString();
                 bool busyStatusT = status.Equals("True");
