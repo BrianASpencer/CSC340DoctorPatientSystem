@@ -93,6 +93,10 @@ namespace DoctorPatient_Subsystem
             this.patientNoticeList = new System.Windows.Forms.ListBox();
             this.patientPanel = new System.Windows.Forms.Panel();
             this.mainDoctorPanel = new System.Windows.Forms.Panel();
+            this.requestPrescPanel = new System.Windows.Forms.Panel();
+            this.rejectReqButton = new System.Windows.Forms.Button();
+            this.grantReqButton = new System.Windows.Forms.Button();
+            this.prescRequestsListBox = new System.Windows.Forms.ListBox();
             this.createDoctorAppointment = new System.Windows.Forms.Panel();
             this.createAppointmentButton = new System.Windows.Forms.Button();
             this.appDetailsRichTextBox = new System.Windows.Forms.RichTextBox();
@@ -125,6 +129,7 @@ namespace DoctorPatient_Subsystem
             this.patientNoticePanel.SuspendLayout();
             this.patientPanel.SuspendLayout();
             this.mainDoctorPanel.SuspendLayout();
+            this.requestPrescPanel.SuspendLayout();
             this.createDoctorAppointment.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -138,7 +143,7 @@ namespace DoctorPatient_Subsystem
             this.loginPanel.Controls.Add(this.loginIDtB);
             this.loginPanel.Controls.Add(this.radioButtonPatient);
             this.loginPanel.Controls.Add(this.radioButtonDoctor);
-            this.loginPanel.Location = new System.Drawing.Point(203, 377);
+            this.loginPanel.Location = new System.Drawing.Point(123, 336);
             this.loginPanel.Name = "loginPanel";
             this.loginPanel.Size = new System.Drawing.Size(767, 426);
             this.loginPanel.TabIndex = 12;
@@ -288,7 +293,7 @@ namespace DoctorPatient_Subsystem
             this.patientPhonePanel.Controls.Add(this.patientPhoneBackBtn);
             this.patientPhonePanel.Controls.Add(this.patientPhoneDocLabel);
             this.patientPhonePanel.Controls.Add(this.patientPhoneList);
-            this.patientPhonePanel.Location = new System.Drawing.Point(367, 277);
+            this.patientPhonePanel.Location = new System.Drawing.Point(287, 236);
             this.patientPhonePanel.Name = "patientPhonePanel";
             this.patientPhonePanel.Size = new System.Drawing.Size(473, 201);
             this.patientPhonePanel.TabIndex = 12;
@@ -374,7 +379,7 @@ namespace DoctorPatient_Subsystem
             this.patientRefillPanel.Controls.Add(this.patientRefillBack);
             this.patientRefillPanel.Controls.Add(this.label6);
             this.patientRefillPanel.Controls.Add(this.patientRefillList);
-            this.patientRefillPanel.Location = new System.Drawing.Point(328, 316);
+            this.patientRefillPanel.Location = new System.Drawing.Point(248, 275);
             this.patientRefillPanel.Name = "patientRefillPanel";
             this.patientRefillPanel.Size = new System.Drawing.Size(473, 201);
             this.patientRefillPanel.TabIndex = 13;
@@ -513,7 +518,7 @@ namespace DoctorPatient_Subsystem
             this.patientAppPanel.Controls.Add(this.patientAppDoctorLable);
             this.patientAppPanel.Controls.Add(this.patientAppTime);
             this.patientAppPanel.Controls.Add(this.patientAppDocListBox);
-            this.patientAppPanel.Location = new System.Drawing.Point(250, 351);
+            this.patientAppPanel.Location = new System.Drawing.Point(170, 310);
             this.patientAppPanel.Name = "patientAppPanel";
             this.patientAppPanel.Size = new System.Drawing.Size(473, 201);
             this.patientAppPanel.TabIndex = 6;
@@ -629,7 +634,7 @@ namespace DoctorPatient_Subsystem
             // 
             this.patientRecordPanel.Controls.Add(this.patientRecordTB);
             this.patientRecordPanel.Controls.Add(this.patientRecordBackBtn);
-            this.patientRecordPanel.Location = new System.Drawing.Point(353, 294);
+            this.patientRecordPanel.Location = new System.Drawing.Point(273, 253);
             this.patientRecordPanel.Name = "patientRecordPanel";
             this.patientRecordPanel.Size = new System.Drawing.Size(473, 201);
             this.patientRecordPanel.TabIndex = 15;
@@ -664,7 +669,7 @@ namespace DoctorPatient_Subsystem
             this.patientNoticePanel.Controls.Add(this.patientNoticeBack);
             this.patientNoticePanel.Controls.Add(this.patientNoticeType);
             this.patientNoticePanel.Controls.Add(this.patientNoticeList);
-            this.patientNoticePanel.Location = new System.Drawing.Point(303, 334);
+            this.patientNoticePanel.Location = new System.Drawing.Point(223, 293);
             this.patientNoticePanel.Name = "patientNoticePanel";
             this.patientNoticePanel.Size = new System.Drawing.Size(473, 201);
             this.patientNoticePanel.TabIndex = 14;
@@ -760,13 +765,14 @@ namespace DoctorPatient_Subsystem
             this.patientPanel.Controls.Add(this.patientPhoneBtn);
             this.patientPanel.Controls.Add(this.patientRecordBtn);
             this.patientPanel.Controls.Add(this.patientRequestAppBnt);
-            this.patientPanel.Location = new System.Drawing.Point(12, 12);
+            this.patientPanel.Location = new System.Drawing.Point(5, 12);
             this.patientPanel.Name = "patientPanel";
-            this.patientPanel.Size = new System.Drawing.Size(776, 397);
+            this.patientPanel.Size = new System.Drawing.Size(785, 397);
             this.patientPanel.TabIndex = 13;
             // 
             // mainDoctorPanel
             // 
+            this.mainDoctorPanel.Controls.Add(this.requestPrescPanel);
             this.mainDoctorPanel.Controls.Add(this.createDoctorAppointment);
             this.mainDoctorPanel.Controls.Add(this.doctorLogoutButton);
             this.mainDoctorPanel.Controls.Add(this.closeDoctorNoticeRecords);
@@ -774,11 +780,48 @@ namespace DoctorPatient_Subsystem
             this.mainDoctorPanel.Controls.Add(this.doctorNoticesListBox);
             this.mainDoctorPanel.Controls.Add(this.viewMedicalRecordsButton);
             this.mainDoctorPanel.Controls.Add(this.viewNoticesButton);
-            this.mainDoctorPanel.Location = new System.Drawing.Point(392, 261);
+            this.mainDoctorPanel.Location = new System.Drawing.Point(0, 0);
             this.mainDoctorPanel.Name = "mainDoctorPanel";
             this.mainDoctorPanel.Size = new System.Drawing.Size(823, 389);
             this.mainDoctorPanel.TabIndex = 16;
             this.mainDoctorPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.mainDoctorPanel_Paint);
+            // 
+            // requestPrescPanel
+            // 
+            this.requestPrescPanel.Controls.Add(this.rejectReqButton);
+            this.requestPrescPanel.Controls.Add(this.grantReqButton);
+            this.requestPrescPanel.Controls.Add(this.prescRequestsListBox);
+            this.requestPrescPanel.Location = new System.Drawing.Point(209, 31);
+            this.requestPrescPanel.Name = "requestPrescPanel";
+            this.requestPrescPanel.Size = new System.Drawing.Size(486, 261);
+            this.requestPrescPanel.TabIndex = 7;
+            this.requestPrescPanel.Visible = false;
+            // 
+            // rejectReqButton
+            // 
+            this.rejectReqButton.Location = new System.Drawing.Point(296, 227);
+            this.rejectReqButton.Name = "rejectReqButton";
+            this.rejectReqButton.Size = new System.Drawing.Size(89, 23);
+            this.rejectReqButton.TabIndex = 2;
+            this.rejectReqButton.Text = "Reject Request";
+            this.rejectReqButton.UseVisualStyleBackColor = true;
+            // 
+            // grantReqButton
+            // 
+            this.grantReqButton.Location = new System.Drawing.Point(143, 227);
+            this.grantReqButton.Name = "grantReqButton";
+            this.grantReqButton.Size = new System.Drawing.Size(87, 23);
+            this.grantReqButton.TabIndex = 1;
+            this.grantReqButton.Text = "Grant Request";
+            this.grantReqButton.UseVisualStyleBackColor = true;
+            // 
+            // prescRequestsListBox
+            // 
+            this.prescRequestsListBox.FormattingEnabled = true;
+            this.prescRequestsListBox.Location = new System.Drawing.Point(46, 31);
+            this.prescRequestsListBox.Name = "prescRequestsListBox";
+            this.prescRequestsListBox.Size = new System.Drawing.Size(434, 186);
+            this.prescRequestsListBox.TabIndex = 0;
             // 
             // createDoctorAppointment
             // 
@@ -793,7 +836,7 @@ namespace DoctorPatient_Subsystem
             this.createDoctorAppointment.Controls.Add(this.label13);
             this.createDoctorAppointment.Controls.Add(this.label12);
             this.createDoctorAppointment.Controls.Add(this.label11);
-            this.createDoctorAppointment.Location = new System.Drawing.Point(250, 347);
+            this.createDoctorAppointment.Location = new System.Drawing.Point(386, 367);
             this.createDoctorAppointment.Name = "createDoctorAppointment";
             this.createDoctorAppointment.Size = new System.Drawing.Size(410, 303);
             this.createDoctorAppointment.TabIndex = 6;
@@ -908,7 +951,7 @@ namespace DoctorPatient_Subsystem
             // 
             // closeDoctorNoticeRecords
             // 
-            this.closeDoctorNoticeRecords.Location = new System.Drawing.Point(729, 329);
+            this.closeDoctorNoticeRecords.Location = new System.Drawing.Point(685, 301);
             this.closeDoctorNoticeRecords.Name = "closeDoctorNoticeRecords";
             this.closeDoctorNoticeRecords.Size = new System.Drawing.Size(75, 23);
             this.closeDoctorNoticeRecords.TabIndex = 4;
@@ -957,7 +1000,7 @@ namespace DoctorPatient_Subsystem
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(704, 415);
+            this.button4.Location = new System.Drawing.Point(715, 275);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 5;
@@ -1006,7 +1049,7 @@ namespace DoctorPatient_Subsystem
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(651, 124);
+            this.button5.Location = new System.Drawing.Point(706, 139);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 11;
@@ -1042,6 +1085,7 @@ namespace DoctorPatient_Subsystem
             this.patientNoticePanel.PerformLayout();
             this.patientPanel.ResumeLayout(false);
             this.mainDoctorPanel.ResumeLayout(false);
+            this.requestPrescPanel.ResumeLayout(false);
             this.createDoctorAppointment.ResumeLayout(false);
             this.createDoctorAppointment.PerformLayout();
             this.ResumeLayout(false);
@@ -1142,6 +1186,10 @@ namespace DoctorPatient_Subsystem
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel requestPrescPanel;
+        private System.Windows.Forms.Button rejectReqButton;
+        private System.Windows.Forms.Button grantReqButton;
+        private System.Windows.Forms.ListBox prescRequestsListBox;
     }
 }
 

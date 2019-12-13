@@ -531,9 +531,9 @@ namespace DoctorPatient_Subsystem
             {
                 mainDoctorPanel.Visible = true;
                 //make create appointment stuff pop up
-                createDoctorAppointment.Visible = true;
+                requestPrescPanel.Visible = true;
                 //{X=331,Y=52}
-                createDoctorAppointment.Location = new Point(315, 52);
+                requestPrescPanel.Location = new Point(280, 35);
             }
             /*
             else if (selectedMsg.getTypeOfNotice().Equals("refill"))
@@ -566,6 +566,7 @@ namespace DoctorPatient_Subsystem
         {
             //make everysingle component invisible?
             createDoctorAppointment.Visible = false;
+            requestPrescPanel.Visible = false;
         }
 
         private void doctorLogoutButton_Click(object sender, EventArgs e)
