@@ -11,15 +11,15 @@ namespace DoctorPatient_Subsystem
     class Message
     {
         int noticeID;
-        string typeOfNotice;
-        string date;
-        int doctorID;
-        int patientID;
-        int prescriptionID;
-        int refillID;
-        string message;
-        int appointment;
-        bool isGranted;
+        string typeOfNotice = null;
+        string date = null;
+        int doctorID = 0;
+        int patientID = 0;
+        int prescriptionID = 0;
+        int refillID = 0;
+        string message = null;
+        int appointment = 0;
+        bool isGranted = false;
 
         public Message()
         {
@@ -48,7 +48,34 @@ namespace DoctorPatient_Subsystem
             this.message = msg;
 
             //insert new message
-            createMessage();
+
+            // prepare an SQL query to retrieve
+            DataTable myTable = new DataTable();
+            string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;";
+            MySqlConnection conn = new MySqlConnection(connStr);
+
+            try
+            {
+                Console.WriteLine("Connecting to MySQL...");
+                conn.Open();
+                string sql = "INSERT INTO kodibrian_message (typeofNotice, mdate, doctor_id, patient_id, message )VALUES (@type , @date , @docId, @patId, @msg );";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@type", typeOfNotice);
+                cmd.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                cmd.Parameters.AddWithValue("@msg", message);
+                cmd.Parameters.AddWithValue("@docId", doctorID);
+                cmd.Parameters.AddWithValue("@patId", patientID);
+
+                //excute and get NoteID
+                noticeID = Convert.ToInt32(cmd.ExecuteScalar());
+                Console.WriteLine("Done.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            conn.Close();
         }
 
         public Message(string type, int docID, int patID, int reID)
@@ -59,13 +86,73 @@ namespace DoctorPatient_Subsystem
             this.refillID = reID;
 
             //insert new message
-            createMessage();
+
+            // prepare an SQL query to retrieve
+            DataTable myTable = new DataTable();
+            string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;";
+            MySqlConnection conn = new MySqlConnection(connStr);
+
+            try
+            {
+                Console.WriteLine("Connecting to MySQL...");
+                conn.Open();
+                string sql = "INSERT INTO kodibrian_message (typeofNotice, mdate, doctor_id, patient_id, refill_id )VALUES (@type , @date , @docId, @patId, @reId );";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@type", typeOfNotice);
+                cmd.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                cmd.Parameters.AddWithValue("@reId", refillID);
+                cmd.Parameters.AddWithValue("@docId", doctorID);
+                cmd.Parameters.AddWithValue("@patId", patientID);
+
+                //excute and get NoteID
+                noticeID = Convert.ToInt32(cmd.ExecuteScalar());
+                Console.WriteLine("Done.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            conn.Close();
         }
 
-        public Message(string type, int docId, int patId,String msg, bool permision)
+        public Message(string type, int docId, int patId, string msg, bool permision)
         {
+            this.typeOfNotice = type;
+            this.doctorID = docId;
+            this.patientID = patId;
+            this.message = msg;
+            this.isGranted = permision;
             //inset new message
-            createMessage();
+
+            // prepare an SQL query to retrieve
+            DataTable myTable = new DataTable();
+            string connStr = "server=csdatabase.eku.edu;user=stu_csc340;database=csc340_db;port=3306;password=Colonels18;";
+            MySqlConnection conn = new MySqlConnection(connStr);
+
+            try
+            {
+                Console.WriteLine("Connecting to MySQL...");
+                conn.Open();
+                string sql = "INSERT INTO kodibrian_message (typeofNotice, mdate, doctor_id, patient_id, message, isGranted )VALUES (@type , @date , @docId, @patId, @msg, @grant );";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@type", typeOfNotice);
+                cmd.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                cmd.Parameters.AddWithValue("@msg", message);
+                cmd.Parameters.AddWithValue("@docId", doctorID);
+                cmd.Parameters.AddWithValue("@patId", patientID);
+                cmd.Parameters.AddWithValue("@grant", isGranted.ToString());
+
+                //excute and get NoteID
+                noticeID = Convert.ToInt32(cmd.ExecuteScalar());
+                Console.WriteLine("Done.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            conn.Close();
         }
 
         public int getNoticeID()
@@ -118,11 +205,6 @@ namespace DoctorPatient_Subsystem
             isGranted = logic;
         }
 
-
-        public void createMessage()
-        {
-            //SQL INSERT Statement goes here
-        }
 
         public ArrayList retrieveMessagesList(string whereVar, int key)
         {
