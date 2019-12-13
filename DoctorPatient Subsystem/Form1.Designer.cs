@@ -1,4 +1,6 @@
-﻿namespace DoctorPatient_Subsystem
+﻿using System;
+
+namespace DoctorPatient_Subsystem
 {
     partial class Form1
     {
@@ -28,12 +30,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button5 = new System.Windows.Forms.Button();
             this.loginPanel = new System.Windows.Forms.Panel();
             this.loginInvalid = new System.Windows.Forms.Label();
             this.loginLoginBtn = new System.Windows.Forms.Button();
@@ -96,6 +92,18 @@
             this.patientNoticeType = new System.Windows.Forms.Label();
             this.patientNoticeList = new System.Windows.Forms.ListBox();
             this.patientPanel = new System.Windows.Forms.Panel();
+            this.mainDoctorPanel = new System.Windows.Forms.Panel();
+            this.closeDoctorNoticeRecords = new System.Windows.Forms.Button();
+            this.selectNoticeButton = new System.Windows.Forms.Button();
+            this.doctorNoticesListBox = new System.Windows.Forms.ListBox();
+            this.viewMedicalRecordsButton = new System.Windows.Forms.Button();
+            this.viewNoticesButton = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.loginPanel.SuspendLayout();
             this.patientPhonePanel.SuspendLayout();
             this.patientRefillPanel.SuspendLayout();
@@ -103,59 +111,8 @@
             this.patientRecordPanel.SuspendLayout();
             this.patientNoticePanel.SuspendLayout();
             this.patientPanel.SuspendLayout();
+            this.mainDoctorPanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(40, 125);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "View Notices";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(40, 232);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(144, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "View Medical Records";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(704, 415);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Close";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(447, 127);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(184, 20);
-            this.textBox2.TabIndex = 7;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(447, 154);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(204, 173);
-            this.listBox1.TabIndex = 9;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(651, 124);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 11;
-            this.button5.Text = "Search";
-            this.button5.UseVisualStyleBackColor = true;
             // 
             // loginPanel
             // 
@@ -167,12 +124,11 @@
             this.loginPanel.Controls.Add(this.loginIDtB);
             this.loginPanel.Controls.Add(this.radioButtonPatient);
             this.loginPanel.Controls.Add(this.radioButtonDoctor);
-            this.loginPanel.Location = new System.Drawing.Point(773, 455);
+            this.loginPanel.Location = new System.Drawing.Point(203, 377);
             this.loginPanel.Name = "loginPanel";
             this.loginPanel.Size = new System.Drawing.Size(767, 426);
             this.loginPanel.TabIndex = 12;
             this.loginPanel.TabStop = true;
-            this.loginPanel.Visible = false;
             // 
             // loginInvalid
             // 
@@ -318,11 +274,12 @@
             this.patientPhonePanel.Controls.Add(this.patientPhoneBackBtn);
             this.patientPhonePanel.Controls.Add(this.patientPhoneDocLabel);
             this.patientPhonePanel.Controls.Add(this.patientPhoneList);
-            this.patientPhonePanel.Location = new System.Drawing.Point(203, 37);
+            this.patientPhonePanel.Location = new System.Drawing.Point(367, 277);
             this.patientPhonePanel.Name = "patientPhonePanel";
             this.patientPhonePanel.Size = new System.Drawing.Size(473, 201);
             this.patientPhonePanel.TabIndex = 12;
             this.patientPhonePanel.Visible = false;
+            this.patientPhonePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.patientPhonePanel_Paint);
             // 
             // label15
             // 
@@ -403,11 +360,12 @@
             this.patientRefillPanel.Controls.Add(this.patientRefillBack);
             this.patientRefillPanel.Controls.Add(this.label6);
             this.patientRefillPanel.Controls.Add(this.patientRefillList);
-            this.patientRefillPanel.Location = new System.Drawing.Point(392, 306);
+            this.patientRefillPanel.Location = new System.Drawing.Point(328, 316);
             this.patientRefillPanel.Name = "patientRefillPanel";
             this.patientRefillPanel.Size = new System.Drawing.Size(473, 201);
             this.patientRefillPanel.TabIndex = 13;
             this.patientRefillPanel.Visible = false;
+            this.patientRefillPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.patientRefillPanel_Paint);
             // 
             // patientRefillMax
             // 
@@ -541,7 +499,7 @@
             this.patientAppPanel.Controls.Add(this.patientAppDoctorLable);
             this.patientAppPanel.Controls.Add(this.patientAppTime);
             this.patientAppPanel.Controls.Add(this.patientAppDocListBox);
-            this.patientAppPanel.Location = new System.Drawing.Point(28, 362);
+            this.patientAppPanel.Location = new System.Drawing.Point(250, 351);
             this.patientAppPanel.Name = "patientAppPanel";
             this.patientAppPanel.Size = new System.Drawing.Size(473, 201);
             this.patientAppPanel.TabIndex = 6;
@@ -657,11 +615,12 @@
             // 
             this.patientRecordPanel.Controls.Add(this.patientRecordTB);
             this.patientRecordPanel.Controls.Add(this.patientRecordBackBtn);
-            this.patientRecordPanel.Location = new System.Drawing.Point(750, 77);
+            this.patientRecordPanel.Location = new System.Drawing.Point(353, 294);
             this.patientRecordPanel.Name = "patientRecordPanel";
             this.patientRecordPanel.Size = new System.Drawing.Size(473, 201);
             this.patientRecordPanel.TabIndex = 15;
             this.patientRecordPanel.Visible = false;
+            this.patientRecordPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.patientRecordPanel_Paint);
             // 
             // patientRecordTB
             // 
@@ -696,6 +655,7 @@
             this.patientNoticePanel.Size = new System.Drawing.Size(473, 201);
             this.patientNoticePanel.TabIndex = 14;
             this.patientNoticePanel.Visible = false;
+            this.patientNoticePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.patientNoticePanel_Paint);
             // 
             // patientNoticeDeny
             // 
@@ -773,7 +733,9 @@
             // 
             // patientPanel
             // 
+            this.patientPanel.Controls.Add(this.mainDoctorPanel);
             this.patientPanel.Controls.Add(this.patientNoticePanel);
+            this.patientPanel.Controls.Add(this.loginPanel);
             this.patientPanel.Controls.Add(this.patientRecordPanel);
             this.patientPanel.Controls.Add(this.patientAppPanel);
             this.patientPanel.Controls.Add(this.patientRefillPanel);
@@ -784,18 +746,135 @@
             this.patientPanel.Controls.Add(this.patientPhoneBtn);
             this.patientPanel.Controls.Add(this.patientRecordBtn);
             this.patientPanel.Controls.Add(this.patientRequestAppBnt);
-            this.patientPanel.Location = new System.Drawing.Point(12, 67);
+            this.patientPanel.Location = new System.Drawing.Point(12, 12);
             this.patientPanel.Name = "patientPanel";
             this.patientPanel.Size = new System.Drawing.Size(776, 397);
             this.patientPanel.TabIndex = 13;
+            // 
+            // mainDoctorPanel
+            // 
+            this.mainDoctorPanel.Controls.Add(this.closeDoctorNoticeRecords);
+            this.mainDoctorPanel.Controls.Add(this.selectNoticeButton);
+            this.mainDoctorPanel.Controls.Add(this.doctorNoticesListBox);
+            this.mainDoctorPanel.Controls.Add(this.viewMedicalRecordsButton);
+            this.mainDoctorPanel.Controls.Add(this.viewNoticesButton);
+            this.mainDoctorPanel.Location = new System.Drawing.Point(696, 163);
+            this.mainDoctorPanel.Name = "mainDoctorPanel";
+            this.mainDoctorPanel.Size = new System.Drawing.Size(776, 389);
+            this.mainDoctorPanel.TabIndex = 16;
+            this.mainDoctorPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.mainDoctorPanel_Paint);
+            // 
+            // closeDoctorNoticeRecords
+            // 
+            this.closeDoctorNoticeRecords.Location = new System.Drawing.Point(665, 329);
+            this.closeDoctorNoticeRecords.Name = "closeDoctorNoticeRecords";
+            this.closeDoctorNoticeRecords.Size = new System.Drawing.Size(75, 23);
+            this.closeDoctorNoticeRecords.TabIndex = 4;
+            this.closeDoctorNoticeRecords.Text = "Close";
+            this.closeDoctorNoticeRecords.UseVisualStyleBackColor = true;
+            this.closeDoctorNoticeRecords.Click += new System.EventHandler(this.closeDoctorNoticeRecords_Click);
+            // 
+            // selectNoticeButton
+            // 
+            this.selectNoticeButton.Location = new System.Drawing.Point(473, 298);
+            this.selectNoticeButton.Name = "selectNoticeButton";
+            this.selectNoticeButton.Size = new System.Drawing.Size(87, 23);
+            this.selectNoticeButton.TabIndex = 3;
+            this.selectNoticeButton.Text = "Select Notice";
+            this.selectNoticeButton.UseVisualStyleBackColor = true;
+            this.selectNoticeButton.Click += new System.EventHandler(this.selectNoticeButton_Click);
+            // 
+            // doctorNoticesListBox
+            // 
+            this.doctorNoticesListBox.FormattingEnabled = true;
+            this.doctorNoticesListBox.Location = new System.Drawing.Point(331, 52);
+            this.doctorNoticesListBox.Name = "doctorNoticesListBox";
+            this.doctorNoticesListBox.Size = new System.Drawing.Size(348, 238);
+            this.doctorNoticesListBox.TabIndex = 2;
+            // 
+            // viewMedicalRecordsButton
+            // 
+            this.viewMedicalRecordsButton.Location = new System.Drawing.Point(26, 232);
+            this.viewMedicalRecordsButton.Name = "viewMedicalRecordsButton";
+            this.viewMedicalRecordsButton.Size = new System.Drawing.Size(123, 23);
+            this.viewMedicalRecordsButton.TabIndex = 1;
+            this.viewMedicalRecordsButton.Text = "View Medical Records";
+            this.viewMedicalRecordsButton.UseVisualStyleBackColor = true;
+            // 
+            // viewNoticesButton
+            // 
+            this.viewNoticesButton.Location = new System.Drawing.Point(26, 72);
+            this.viewNoticesButton.Name = "viewNoticesButton";
+            this.viewNoticesButton.Size = new System.Drawing.Size(123, 23);
+            this.viewNoticesButton.TabIndex = 0;
+            this.viewNoticesButton.Text = "View Notices";
+            this.viewNoticesButton.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(704, 415);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "Close";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(40, 125);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(144, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "View Notices";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(40, 232);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(144, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "View Medical Records";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(447, 127);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(184, 20);
+            this.textBox2.TabIndex = 7;
+            this.textBox2.Visible = false;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(447, 154);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(204, 173);
+            this.listBox1.TabIndex = 9;
+            this.listBox1.Visible = false;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(651, 124);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 11;
+            this.button5.Text = "Search";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 629);
+            this.ClientSize = new System.Drawing.Size(1364, 838);
             this.Controls.Add(this.patientPanel);
-            this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.textBox2);
@@ -804,6 +883,7 @@
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.loginPanel.ResumeLayout(false);
             this.loginPanel.PerformLayout();
             this.patientPhonePanel.ResumeLayout(false);
@@ -816,19 +896,18 @@
             this.patientNoticePanel.ResumeLayout(false);
             this.patientNoticePanel.PerformLayout();
             this.patientPanel.ResumeLayout(false);
+            this.mainDoctorPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
-        #endregion
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button5;
+        #endregion
         private System.Windows.Forms.Panel loginPanel;
         private System.Windows.Forms.Button loginLoginBtn;
         private System.Windows.Forms.Label label2;
@@ -891,6 +970,18 @@
         private System.Windows.Forms.Label patientNoticeType;
         private System.Windows.Forms.ListBox patientNoticeList;
         private System.Windows.Forms.Panel patientPanel;
+        private System.Windows.Forms.Panel mainDoctorPanel;
+        private System.Windows.Forms.Button selectNoticeButton;
+        private System.Windows.Forms.ListBox doctorNoticesListBox;
+        private System.Windows.Forms.Button viewMedicalRecordsButton;
+        private System.Windows.Forms.Button viewNoticesButton;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button closeDoctorNoticeRecords;
     }
 }
 

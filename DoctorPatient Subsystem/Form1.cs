@@ -30,7 +30,7 @@ namespace DoctorPatient_Subsystem
             {
                 ItemObject[i] = "Patient 0,"+" Record " + i;
             }
-            listBox1.Items.AddRange(ItemObject);
+            //listBox1.Items.AddRange(ItemObject);
             
         }
 
@@ -97,7 +97,9 @@ namespace DoctorPatient_Subsystem
                     loginPanel.Visible = false;
 
                     //make doctor panel visable
+                    mainDoctorPanel.Visible = true;
                     //move doctor panel
+                    mainDoctorPanel.Location = new Point(0, 0);
                 }
             }
             else
@@ -485,6 +487,82 @@ namespace DoctorPatient_Subsystem
             patientBack.Enabled = true;
         }
 
+        private void patientRefillPanel_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
+
+        private void patientRecordPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void patientPhonePanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void patientNoticePanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        //Doctor's Panels
+
+        /*
+         * if (List != null)
+            {
+                selectedDoc = (Doctor)List[patientAppDocListBox.SelectedIndex];
+                patientAppDoctorLable.Text += "" + selectedDoc.getName();
+            }
+         */
+
+        private void selectNoticeButton_Click(object sender, EventArgs e)
+        {
+            /*
+            Message selectedMsg = (Message)List[patientNoticeList.SelectedIndex];
+            if (selectedMsg.getTypeOfNotice().Equals("appointment"))
+            {
+                //make create appointment stuff pop up
+            } 
+            else if (selectedMsg.getTypeOfNotice().Equals("refill"))
+            {
+                //make grant/reject buttons appear
+                //then grant makes an amount/date to be filled boxes pop up
+                //then reject makes a reason box appear
+            }
+            else if (selectedMsg.getTypeOfNotice().Equals("phone"))
+            {
+                //make grant/reject buttons appear
+                //then grant makes a date boxe pop up
+                //then reject makes a reason box appear
+            }
+            */
+        }
+
+        private void mainDoctorPanel_Paint(object sender, PaintEventArgs e)
+        {
+            mainDoctorPanel.Visible = true;
+            mainDoctorPanel.Location = new Point(0, 0);
+            List.Clear();
+            //make list of notices in data base
+            //List = new Message().retrieveMessagesList("doctor_id", userDoctor.getIDNumber());
+            //Console.WriteLine(new Message().retrieveMessagesList("doctor_id", userDoctor.getIDNumber()));
+        }
+
+        private void closeDoctorNoticeRecords_Click(object sender, EventArgs e)
+        {
+            //make everysingle component invisible?
+            mainDoctorPanel.Visible = false;
+            mainDoctorPanel.Location = new Point(200, 200);
+
+            loginPanel.Visible = true;
+            loginPanel.Location = new Point(0, 0);
+        }
     }
 }
