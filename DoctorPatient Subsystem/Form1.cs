@@ -525,30 +525,24 @@ namespace DoctorPatient_Subsystem
         private void selectNoticeButton_Click(object sender, EventArgs e)
         {
 
-            //Message selectedMsg = (Message)List[patientNoticeList.SelectedIndex];
+            Message selectedMsg = (Message)List[patientNoticeList.SelectedIndex];
             //selectedMsg.getTypeOfNotice().Equals("appointment")
-            if (true)
+            if (selectedMsg.getTypeOfNotice().Equals("appointment"))
             {
                 mainDoctorPanel.Visible = true;
                 //make create appointment stuff pop up
-                requestPrescPanel.Visible = true;
-                //{X=331,Y=52}
-                requestPrescPanel.Location = new Point(280, 35);
+                createDoctorAppointment.Visible = true;
+                createDoctorAppointment.Location = new Point(273, 25);
             }
-            /*
             else if (selectedMsg.getTypeOfNotice().Equals("refill"))
             {
                 //make grant/reject buttons appear
                 //then grant makes an amount/date to be filled boxes pop up
                 //then reject makes a reason box appear
+                requestPrescPanel.Visible = true;
+
+                requestPrescPanel.Location = new Point(280, 35);
             }
-            else if (selectedMsg.getTypeOfNotice().Equals("phone"))
-            {
-                //make grant/reject buttons appear
-                //then grant makes a date boxe pop up
-                //then reject makes a reason box appear
-            }
-            */
             
         }
 
