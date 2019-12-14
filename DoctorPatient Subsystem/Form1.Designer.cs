@@ -801,7 +801,7 @@ namespace DoctorPatient_Subsystem
             this.requestPrescPanel.Controls.Add(this.rejectReqButton);
             this.requestPrescPanel.Controls.Add(this.grantReqButton);
             this.requestPrescPanel.Controls.Add(this.prescRequestsListBox);
-            this.requestPrescPanel.Location = new System.Drawing.Point(209, 31);
+            this.requestPrescPanel.Location = new System.Drawing.Point(424, 340);
             this.requestPrescPanel.Name = "requestPrescPanel";
             this.requestPrescPanel.Size = new System.Drawing.Size(486, 261);
             this.requestPrescPanel.TabIndex = 7;
