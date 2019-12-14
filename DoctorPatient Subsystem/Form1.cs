@@ -267,8 +267,8 @@ namespace DoctorPatient_Subsystem
         {
             if (List != null)
             {
-                selectedDoc = (Doctor)List[patientAppDocListBox.SelectedIndex];
-                patientPhoneDocLabel.Text += "" + selectedDoc.getName();
+                selectedDoc = (Doctor)List[patientPhoneList.SelectedIndex];
+                patientPhoneDocLabel.Text = selectedDoc.getName();
             }
         }
 
@@ -292,6 +292,12 @@ namespace DoctorPatient_Subsystem
             List.Clear();
             //make list of doctors in data base
             List = new Doctor().retrieveNonBusyDoctorList();
+
+            for (int i=0;i<List.Count;i++)
+            {
+                Doctor tempDoc = (Doctor)List[i];
+                patientPhoneList.Items.Add(tempDoc.getName());
+            }
 
             if (List != null)
             {

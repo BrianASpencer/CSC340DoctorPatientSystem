@@ -154,7 +154,7 @@ namespace DoctorPatient_Subsystem
             {
                 Console.WriteLine(ex.ToString());
             }
-            conn.Close();
+            
             //convert the retrieved data to events and save them to the list
             foreach (DataRow row in myTable.Rows)
             {
@@ -162,8 +162,36 @@ namespace DoctorPatient_Subsystem
                 timesFilled = Int32.Parse(row["timesFilled"].ToString());
                 medication = row["medication"].ToString();
                 refillID = Int32.Parse(row["refill_id"].ToString());
-                doctorID = Int32.Parse(row["doctor_id"].ToString());
+                noticeID= Int32.Parse(row["notice_id"].ToString());
             }
+
+
+            //get doctor id
+            try
+            {
+                Console.WriteLine("Connecting to MySQL...");
+                string sql = "SELECT * FROM kodibrian_message WHERE refill_id = @key ;";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@key", refillID);
+                MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
+                myAdapter.Fill(myTable);
+                Console.WriteLine("Table is ready.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
+            //convert the retrieved data to events and save them to the list
+            foreach (DataRow row in myTable.Rows)
+            {
+                doctorID = Int32.Parse(row["doctor_id"].ToString());
+                
+
+
+            }
+
+
         }
 
     }
