@@ -108,8 +108,13 @@ namespace DoctorPatient_Subsystem
                 cmd.Parameters.AddWithValue("@des", description);
 
                 //excute and get appID
-                appointmentId = Convert.ToInt32(cmd.ExecuteScalar());
-                Console.WriteLine("Done.");
+                cmd.ExecuteNonQuery();
+                appointmentId = (int)cmd.LastInsertedId;
+
+                Console.WriteLine("\n\n\n"+appointmentId+"\n\n\n");
+
+
+
             }
             catch (Exception ex)
             {
@@ -120,7 +125,6 @@ namespace DoctorPatient_Subsystem
             try
             {
                 Console.WriteLine("Connecting to MySQL...");
-                conn.Open();
                 string sql = "INSERT INTO kodibrian_message (typeofNotice, mdate, doctor_id, patient_id, appointment_id, message)VALUES (@type , @date , @docId, @patId, @appId, @mes );"; 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@type", "Appointment");
@@ -128,11 +132,12 @@ namespace DoctorPatient_Subsystem
                 cmd.Parameters.AddWithValue("@docId", doctorId);
                 cmd.Parameters.AddWithValue("@patId", patientId);
                 cmd.Parameters.AddWithValue("@appId", appointmentId);
-                cmd.Parameters.AddWithValue("@mes", patientName+" you have an appointment with "+doctorName+". \n Con#: "+confirmationNum+"\n Date: "+date);
+                cmd.Parameters.AddWithValue("@mes", ""+patientName+" you have an appointment with "+doctorName+". \n Con#: "+confirmationNum+"\n Date: "+date);
 
                 //excute and get NoteID
-                noticeId = Convert.ToInt32(cmd.ExecuteScalar());
-                Console.WriteLine("Done.");
+                cmd.ExecuteNonQuery();
+                noticeId = (int)cmd.LastInsertedId;
+                Console.WriteLine("Done" +".");
             }
             catch (Exception ex)
             {
@@ -145,7 +150,6 @@ namespace DoctorPatient_Subsystem
             try
             {
                 Console.WriteLine("Connecting to MySQL...");
-                conn.Open();
                 string sql = "UPDATE kodibrian_appointments SET notice_id = @noteId WHERE appointment_id = @appId"; 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@noteId", noticeId);
