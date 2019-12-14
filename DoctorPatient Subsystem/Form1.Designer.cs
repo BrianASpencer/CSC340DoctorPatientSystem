@@ -774,7 +774,7 @@ namespace DoctorPatient_Subsystem
             this.patientPanel.Controls.Add(this.patientPhoneBtn);
             this.patientPanel.Controls.Add(this.patientRecordBtn);
             this.patientPanel.Controls.Add(this.patientRequestAppBnt);
-            this.patientPanel.Location = new System.Drawing.Point(20, 348);
+            this.patientPanel.Location = new System.Drawing.Point(12, 4);
             this.patientPanel.Name = "patientPanel";
             this.patientPanel.Size = new System.Drawing.Size(785, 397);
             this.patientPanel.TabIndex = 13;

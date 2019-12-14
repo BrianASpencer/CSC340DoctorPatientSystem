@@ -170,9 +170,8 @@ namespace DoctorPatient_Subsystem
             try
             {
                 Console.WriteLine("Connecting to MySQL...");
-                string sql = "SELECT * FROM kodibrian_message WHERE refill_id = @key ;";
+                string sql = "SELECT doctor_id FROM kodibrian_message WHERE refill_id =" +refillID+";";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@key", refillID);
                 MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
                 myAdapter.Fill(myTable);
                 Console.WriteLine("Table is ready.");
@@ -183,8 +182,11 @@ namespace DoctorPatient_Subsystem
             }
             conn.Close();
             //convert the retrieved data to events and save them to the list
+            Console.WriteLine("\n\n\n"+myTable.Columns.Count+"\n"+myTable.Rows.Count+"");
             foreach (DataRow row in myTable.Rows)
             {
+                string r = row["doctor_id"].ToString();
+                Console.WriteLine("\n\n\n" + r + "\n\n\n");
                 doctorID = Int32.Parse(row["doctor_id"].ToString());
                 
 

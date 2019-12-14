@@ -219,7 +219,7 @@ namespace DoctorPatient_Subsystem
             {
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
-                string sql = "SELECT * FROM kodibrian_message WHERE @var = @key ;"; 
+                string sql = "SELECT * FROM kodibrian_message WHERE " + whereVar + " = " + key + " ;";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@var", whereVar);
                 cmd.Parameters.AddWithValue("@key", key);
@@ -238,13 +238,40 @@ namespace DoctorPatient_Subsystem
                 int notId = Int32.Parse(row["notice_id"].ToString());
                 string type = row["typeofNotice"].ToString();
                 string dateT = row["mdate"].ToString();
-                int docId = Int32.Parse(row["doctor_id"].ToString());
-                int patId = Int32.Parse(row["patient_id"].ToString());
-                int preId = Int32.Parse(row["prescription_id"].ToString());
-                int reId = Int32.Parse(row["refill_id"].ToString());
+
+                int docId;
+                if (!row["doctor_id"].ToString().Equals(""))
+                    docId = Int32.Parse(row["doctor_id"].ToString());
+                else
+                    docId = -1;
+
+                int patId;
+                if (!row["patient_id"].ToString().Equals(""))
+                    patId = Int32.Parse(row["patient_id"].ToString());
+                else
+                    patId = -1;
+
+                int preId;
+                if (!row["prescription_id"].ToString().Equals(""))
+                    preId = Int32.Parse(row["prescription_id"].ToString());
+                else
+                    preId = -1;
+
+                int reId;
+                if (!row["refill_id"].ToString().Equals(""))
+                    reId = Int32.Parse(row["refill_id"].ToString());
+                else
+                    reId = -1;
+
                 string mes = row["message"].ToString();
-                int appId = Int32.Parse(row["appointment_id"].ToString());
-                string status = row["iGranted"].ToString();
+
+                int appId;
+                if (!row["appointment_id"].ToString().Equals(""))
+                    appId = Int32.Parse(row["appointment_id"].ToString());
+                else
+                    appId = -1;
+
+                string status = row["isGranted"].ToString();
                 bool grant = status.Equals("True");
 
                 messageList.Add(new Message(notId, type, dateT, docId, patId, preId, reId, mes, appId, grant));

@@ -331,9 +331,14 @@ namespace DoctorPatient_Subsystem
             patientPhonePanel.Visible = true;
             patientPhonePanel.Location = new Point(203, 37);
 
-            patientDisableBtns();
 
-            List.Clear();
+
+            patientDisableBtns();
+            if (List != null)
+            {
+                List.Clear();
+                
+            }
             //make list of refills in data base
             List = new Refill().retrieveRefillList(userPatient.getId());
 
@@ -391,12 +396,18 @@ namespace DoctorPatient_Subsystem
             patientNoticePanel.Location = new Point(203, 37);
 
             //make list from notices with patId
-            List = new Message().retrieveMessagesList("PatientID",userPatient.getId());
+            List = new Message().retrieveMessagesList("patient_id", userPatient.getId());
 
             if (List != null)
-            { 
-            patientNoticeType.Text = ((Message)List[0]).getTypeOfNotice();
-            patientNoticeDescrip.Text = ((Message)List[0]).getMessage();
+            {
+                for (int i =0; i<List.Count;i++)
+                {
+                    Message tempNot = (Message)List[i];
+                    patientNoticeList.Items.Add(tempNot.getTypeOfNotice()+"\n"+tempNot.getDate());
+                }
+
+                patientNoticeType.Text = ((Message)List[0]).getTypeOfNotice();
+                patientNoticeDescrip.Text = ((Message)List[0]).getMessage();
             
             }
         }
